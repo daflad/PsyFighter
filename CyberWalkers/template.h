@@ -10,9 +10,7 @@
 #define __CyberWalkers__template__
 
 #include <iostream>
-// Include GLM
-#include <glm/glm.hpp>
-using namespace glm;
+#include <GLUT/glut.h>
 
 // These are the functions that you will use to create and interact with your GL scene:
 void display(void);
@@ -20,6 +18,5 @@ void resize(int w, int h);
 void setup(void);
 void keyInput(unsigned char key, int x, int y);
 
-void drawLine(int y);
 
 #endif /* defined(__CyberWalkers__template__) */

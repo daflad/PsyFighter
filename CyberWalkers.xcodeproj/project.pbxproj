@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6D535D64184D258E003E60D0 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D535D60184D258E003E60D0 /* main.cpp */; };
 		6D535D65184D258E003E60D0 /* template.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D535D62184D258E003E60D0 /* template.cpp */; };
-		6D769AE2184EA11C00EA983D /* ObjLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D769AE0184EA11C00EA983D /* ObjLoader.cpp */; };
 		EE0B67E81805D25800527B67 /* CyberWalkers.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = EE0B67E71805D25800527B67 /* CyberWalkers.1 */; };
 		EE0B67EF1805D28500527B67 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE0B67EE1805D28500527B67 /* OpenGL.framework */; };
 		EE0B67F11805D28C00527B67 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE0B67F01805D28C00527B67 /* GLUT.framework */; };
@@ -32,8 +31,8 @@
 		6D535D60184D258E003E60D0 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		6D535D62184D258E003E60D0 /* template.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = template.cpp; sourceTree = "<group>"; };
 		6D535D63184D258E003E60D0 /* template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = template.h; sourceTree = "<group>"; };
-		6D769AE0184EA11C00EA983D /* ObjLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ObjLoader.cpp; sourceTree = "<group>"; };
-		6D769AE1184EA11C00EA983D /* ObjLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjLoader.h; sourceTree = "<group>"; };
+		6DE12C78184FADA20014EC98 /* space_craft_001.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = space_craft_001.h; sourceTree = "<group>"; };
+		6DE12C79184FBE760014EC98 /* banana.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = banana.h; sourceTree = "<group>"; };
 		EE0B67E21805D25800527B67 /* CyberWalkers */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CyberWalkers; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE0B67E71805D25800527B67 /* CyberWalkers.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = CyberWalkers.1; sourceTree = "<group>"; };
 		EE0B67EE1805D28500527B67 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -74,11 +73,11 @@
 		EE0B67E41805D25800527B67 /* CyberWalkers */ = {
 			isa = PBXGroup;
 			children = (
+				6DE12C79184FBE760014EC98 /* banana.h */,
+				6DE12C78184FADA20014EC98 /* space_craft_001.h */,
 				6D535D60184D258E003E60D0 /* main.cpp */,
 				6D535D62184D258E003E60D0 /* template.cpp */,
 				6D535D63184D258E003E60D0 /* template.h */,
-				6D769AE0184EA11C00EA983D /* ObjLoader.cpp */,
-				6D769AE1184EA11C00EA983D /* ObjLoader.h */,
 				EE0B67E71805D25800527B67 /* CyberWalkers.1 */,
 			);
 			path = CyberWalkers;
@@ -137,7 +136,6 @@
 			files = (
 				6D535D64184D258E003E60D0 /* main.cpp in Sources */,
 				6D535D65184D258E003E60D0 /* template.cpp in Sources */,
-				6D769AE2184EA11C00EA983D /* ObjLoader.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,14 +217,8 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					/usr/local/Cellar/glew/1.10.0/include,
-					/usr/local/Cellar/glm/0.9.4.6/include,
-					/usr/local/Cellar/assimp/3.0.1270/include,
 				);
-				LIBRARY_SEARCH_PATHS = (
-					/usr/local/Cellar/glew/1.10.0/lib,
-					/usr/local/Cellar/glm/0.9.4.6/lib,
-					/usr/local/Cellar/assimp/3.0.1270/lib,
-				);
+				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/glew/1.10.0/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -238,14 +230,8 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					/usr/local/Cellar/glew/1.10.0/include,
-					/usr/local/Cellar/glm/0.9.4.6/include,
-					/usr/local/Cellar/assimp/3.0.1270/include,
 				);
-				LIBRARY_SEARCH_PATHS = (
-					/usr/local/Cellar/glew/1.10.0/lib,
-					/usr/local/Cellar/glm/0.9.4.6/lib,
-					/usr/local/Cellar/assimp/3.0.1270/lib,
-				);
+				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/glew/1.10.0/lib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
