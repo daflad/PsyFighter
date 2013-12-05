@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D392D1E18501D9F00B49AD2 /* BMPLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D392D1D18501D9F00B49AD2 /* BMPLoader.cpp */; };
 		6D535D64184D258E003E60D0 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D535D60184D258E003E60D0 /* main.cpp */; };
 		6D535D65184D258E003E60D0 /* template.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D535D62184D258E003E60D0 /* template.cpp */; };
 		EE0B67E81805D25800527B67 /* CyberWalkers.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = EE0B67E71805D25800527B67 /* CyberWalkers.1 */; };
@@ -28,6 +29,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6D392D1C18501D9F00B49AD2 /* BMPLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMPLoader.h; sourceTree = "<group>"; };
+		6D392D1D18501D9F00B49AD2 /* BMPLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BMPLoader.cpp; sourceTree = "<group>"; };
 		6D535D60184D258E003E60D0 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		6D535D62184D258E003E60D0 /* template.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = template.cpp; sourceTree = "<group>"; };
 		6D535D63184D258E003E60D0 /* template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = template.h; sourceTree = "<group>"; };
@@ -73,6 +76,8 @@
 		EE0B67E41805D25800527B67 /* CyberWalkers */ = {
 			isa = PBXGroup;
 			children = (
+				6D392D1C18501D9F00B49AD2 /* BMPLoader.h */,
+				6D392D1D18501D9F00B49AD2 /* BMPLoader.cpp */,
 				6DE12C79184FBE760014EC98 /* banana.h */,
 				6DE12C78184FADA20014EC98 /* space_craft_001.h */,
 				6D535D60184D258E003E60D0 /* main.cpp */,
@@ -134,6 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D392D1E18501D9F00B49AD2 /* BMPLoader.cpp in Sources */,
 				6D535D64184D258E003E60D0 /* main.cpp in Sources */,
 				6D535D65184D258E003E60D0 /* template.cpp in Sources */,
 			);
