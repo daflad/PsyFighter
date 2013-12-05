@@ -36,11 +36,12 @@ void display(void)                                                              
     
     
     // Vertices and Normals are packed in the same VBO - specify pointers accordingly
-    glNormalPointer(GL_FLOAT, 0, (void*)sizeof(space_craft_001Verts));
-    glVertexPointer(3, GL_FLOAT, 0, 0);
+    //glNormalPointer(GL_FLOAT, 0, (void*)sizeof(space_craft_001Verts));
+    //glVertexPointer(3, GL_FLOAT, 0, 0);
     
     glPushMatrix();
-    glRotatef(yrot,0.0f,1.0f,0.0f);
+  //  glRotatef(yrot,0.0f,1.0f,0.0f);
+  // glTranslatef(0, 0, 0.9);
     
     // Draw the bunny
     glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
@@ -53,7 +54,7 @@ void display(void)                                                              
     
     
     //Specify the appropriate function call for glDrawElements here:
-    // glDrawElements(GL_TRIANGLES,3*NUM_TRIANGLES,GL_UNSIGNED_INT,triangles);
+    //glDrawElements(GL_TRIANGLES,space_craft_001NumVerts,GL_FLOAT,space_craft_001Verts);
     
     // ----------------------------------------------------------------------------------------
     
@@ -66,21 +67,13 @@ void display(void)                                                              
     
     // Disable client states:
     glDisableClientState(GL_VERTEX_ARRAY);  // disable vertex arrays
-    glDisableClientState(GL_COLOR_ARRAY);
+    
+    glDisableClientState(GL_TEXTURE_COORD_ARRAY);
     glDisableClientState(GL_NORMAL_ARRAY);
     
     // it is good idea to release VBOs with ID 0 after use.
-    glBindBufferARB(GL_ARRAY_BUFFER_ARB, 0);
+   // glBindBufferARB(GL_ARRAY_BUFFER_ARB, 0);
     
-    glutSwapBuffers();      //swaps the front and back buffers
-    
-    
-    
-    
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);        // Clear Screen And Depth Buffer
-    glLoadIdentity();                                                                        // Reset The Current Modelview Matrix
-    
-    //gluLookAt (300.0, 10.0, 50.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
     glutSwapBuffers();      //swaps the front and back buffers
 }
 
@@ -136,14 +129,14 @@ void setup(void)                                                                
     //        glEnable(GL_DEPTH_TEST);                                                        // Enables Depth Testing
     //        glDepthFunc(GL_LEQUAL);                                                                // Type of depth testing to do
     //        glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);        // Really Nice Perspective Calculations
-    //    std::string f = "/Users/stephenjohnrussell/dev/CyberWalkers/CyberWalkers/spaceship_panel_texture_by_dactilardesign-d4v9zb4.bmp";
-    //    glEnable ( GL_TEXTURE_2D );
-    //    glGenTextures (1, &texture_id);
-    //        BMPLoad(f,bmp);
-    //    glBindTexture ( GL_TEXTURE_2D, texture_id );
-    //        glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
-    //        glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
-    //        glTexImage2D(GL_TEXTURE_2D,0,3,bmp.width,bmp.height,0,GL_RGB,GL_UNSIGNED_BYTE,bmp.bytes);
+        std::string f = "/Users/stephenjohnrussell/dev/CyberWalkers/CyberWalkers/spaceship_panel_texture_by_dactilardesign-d4v9zb4.bmp";
+        glEnable ( GL_TEXTURE_2D );
+        glGenTextures (1, &texture_id);
+        BMPLoad(f,bmp);
+        glBindTexture ( GL_TEXTURE_2D, texture_id );
+        glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
+        glTexImage2D(GL_TEXTURE_2D,0,3,bmp.width,bmp.height,0,GL_RGB,GL_UNSIGNED_BYTE,bmp.bytes);
     //    glLightfv(GL_LIGHT1, GL_AMBIENT, LightAmbient);                // Setup The Ambient Light
     //        glLightfv(GL_LIGHT1, GL_DIFFUSE, LightDiffuse);                // Setup The Diffuse Light
     //        glLightfv(GL_LIGHT1, GL_POSITION,LightPosition);        // Position The Light
