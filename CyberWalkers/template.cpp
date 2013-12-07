@@ -44,7 +44,7 @@ void display(void)                                                              
   // glTranslatef(0, 0, 0.9);
     
     // Draw the bunny
-    glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
+    //glPolygonMode(GL_FRONT_AND_BACK,GL_FILL);
     glBindTexture(GL_TEXTURE_2D, texture_id);
     glVertexPointer(3, GL_FLOAT, 0, space_craft_001Verts);
     glNormalPointer(GL_FLOAT, 0, space_craft_001Normals);
@@ -72,7 +72,7 @@ void display(void)                                                              
     glDisableClientState(GL_NORMAL_ARRAY);
     
     // it is good idea to release VBOs with ID 0 after use.
-   // glBindBufferARB(GL_ARRAY_BUFFER_ARB, 0);
+    glBindBufferARB(GL_ARRAY_BUFFER_ARB, 0);
     
     glutSwapBuffers();      //swaps the front and back buffers
 }
@@ -143,9 +143,9 @@ void setup(void)                                                                
     //        glEnable(GL_LIGHT1);                                                                // Enable Light One
     //
     // set input data to arrays
-    //    glVertexPointer(3, GL_FLOAT, 0, space_craft_001Verts);
-    //    glNormalPointer(GL_FLOAT, 0, space_craft_001Normals);
-    //    glTexCoordPointer(2, GL_FLOAT, 0, space_craft_001TexCoords);
+        glVertexPointer(3, GL_FLOAT, 0, space_craft_001Verts);
+        glNormalPointer(GL_FLOAT, 0, space_craft_001Normals);
+        glTexCoordPointer(2, GL_FLOAT, 0, space_craft_001TexCoords);
     
 }
 
@@ -166,8 +166,6 @@ void resize(int width, int height)
     // Calculate The Aspect Ratio Of The Window
     gluPerspective(45.0f,(GLfloat)width/(GLfloat)height,0.1f,100.0f);
     
-    glMatrixMode(GL_MODELVIEW);                                                        // Select the Modelview Matrix
-    glLoadIdentity();                                                                        // Reset the Modelview Matrix
 }
 
 /* Keyboard input processing routine */
