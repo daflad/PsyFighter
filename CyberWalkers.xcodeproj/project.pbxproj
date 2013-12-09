@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D0C75EB18560716008EA65A /* LazerShot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D0C75E918560716008EA65A /* LazerShot.cpp */; };
+		6D0C75EF185655DA008EA65A /* GamePlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D0C75ED185655DA008EA65A /* GamePlay.cpp */; };
+		6D0C75F218565661008EA65A /* SpaceShip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D0C75F018565661008EA65A /* SpaceShip.cpp */; };
 		6D392D1E18501D9F00B49AD2 /* BMPLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D392D1D18501D9F00B49AD2 /* BMPLoader.cpp */; };
 		6D535D64184D258E003E60D0 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D535D60184D258E003E60D0 /* main.cpp */; };
 		6D535D65184D258E003E60D0 /* template.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D535D62184D258E003E60D0 /* template.cpp */; };
@@ -29,6 +32,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6D0C75E918560716008EA65A /* LazerShot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LazerShot.cpp; sourceTree = "<group>"; };
+		6D0C75EA18560716008EA65A /* LazerShot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LazerShot.h; sourceTree = "<group>"; };
+		6D0C75ED185655DA008EA65A /* GamePlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GamePlay.cpp; sourceTree = "<group>"; };
+		6D0C75EE185655DA008EA65A /* GamePlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePlay.h; sourceTree = "<group>"; };
+		6D0C75F018565661008EA65A /* SpaceShip.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpaceShip.cpp; sourceTree = "<group>"; };
+		6D0C75F118565661008EA65A /* SpaceShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceShip.h; sourceTree = "<group>"; };
 		6D392D1C18501D9F00B49AD2 /* BMPLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMPLoader.h; sourceTree = "<group>"; };
 		6D392D1D18501D9F00B49AD2 /* BMPLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BMPLoader.cpp; sourceTree = "<group>"; };
 		6D535D60184D258E003E60D0 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -76,11 +85,17 @@
 		EE0B67E41805D25800527B67 /* CyberWalkers */ = {
 			isa = PBXGroup;
 			children = (
+				6D0C75E918560716008EA65A /* LazerShot.cpp */,
+				6D0C75EA18560716008EA65A /* LazerShot.h */,
 				6D392D1C18501D9F00B49AD2 /* BMPLoader.h */,
 				6D392D1D18501D9F00B49AD2 /* BMPLoader.cpp */,
 				6DE12C79184FBE760014EC98 /* banana.h */,
 				6DE12C78184FADA20014EC98 /* space_craft_001.h */,
 				6D535D60184D258E003E60D0 /* main.cpp */,
+				6D0C75ED185655DA008EA65A /* GamePlay.cpp */,
+				6D0C75F018565661008EA65A /* SpaceShip.cpp */,
+				6D0C75F118565661008EA65A /* SpaceShip.h */,
+				6D0C75EE185655DA008EA65A /* GamePlay.h */,
 				6D535D62184D258E003E60D0 /* template.cpp */,
 				6D535D63184D258E003E60D0 /* template.h */,
 				EE0B67E71805D25800527B67 /* CyberWalkers.1 */,
@@ -140,7 +155,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D392D1E18501D9F00B49AD2 /* BMPLoader.cpp in Sources */,
+				6D0C75EF185655DA008EA65A /* GamePlay.cpp in Sources */,
+				6D0C75F218565661008EA65A /* SpaceShip.cpp in Sources */,
 				6D535D64184D258E003E60D0 /* main.cpp in Sources */,
+				6D0C75EB18560716008EA65A /* LazerShot.cpp in Sources */,
 				6D535D65184D258E003E60D0 /* template.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,6 +237,7 @@
 		EE0B67EC1805D25800527B67 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -235,6 +254,7 @@
 		EE0B67ED1805D25800527B67 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
