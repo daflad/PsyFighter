@@ -12,9 +12,9 @@
 
 BMPClass bmp;
 GLuint texture_id;
-GLfloat LightAmbient[]  =	{ 0.5f, 0.5f, 0.5f, 1.0f };
-GLfloat LightDiffuse[]  =	{ 1.0f, 1.0f, 1.0f, 1.0f };
-GLfloat LightPosition[] =   { 1.0f, 1.0f, 2.0f, 1.0f };
+GLfloat LightAmbient[]  =	{ 1.0f, 1.0f, 1.0f, 1.0f };
+GLfloat LightDiffuse[]  =	{ 0.0f, 0.0f, 0.0f, 0.0f };
+GLfloat LightPosition[] =   { 1.0f, 1.0f, 1.0f, 1.0f };
 
 GLuint vboId = 0;           // ID of VBO for vertex arrays
 
@@ -41,9 +41,10 @@ void display(void)									// Here's Where We Do All The Drawing
     glNormalPointer(GL_FLOAT, 0, space_craft_001Normals);
     glTexCoordPointer(2, GL_FLOAT, 0, space_craft_001TexCoords);
 
+    glTranslatef(0.1, 0, 0);
     glRotatef(90, 0, 1, 0);
     glRotatef(20, 1, 0, 0);
-    glRotatef(-60, 0, 0, 1);
+    glRotatef(-30, 0, 0, 1);
     
     glDrawArrays(GL_TRIANGLES, 0, space_craft_001NumVerts);
     
