@@ -1,7 +1,7 @@
 /*
 created with obj2opengl.pl
 
-source file    : ./space_craft_001.obj
+source file    : ./SpaceShipObject.obj
 vertices       : 426
 faces          : 848
 normals        : 426
@@ -9,20 +9,20 @@ texture coords : 646
 
 
 // include generated arrays
-#import "./space_craft_001.h"
+#import "./SpaceShipObject.h"
 
 // set input data to arrays
-glVertexPointer(3, GL_FLOAT, 0, space_craft_001Verts);
-glNormalPointer(GL_FLOAT, 0, space_craft_001Normals);
-glTexCoordPointer(2, GL_FLOAT, 0, space_craft_001TexCoords);
+glVertexPointer(3, GL_FLOAT, 0, SpaceShipObjectVerts);
+glNormalPointer(GL_FLOAT, 0, SpaceShipObjectNormals);
+glTexCoordPointer(2, GL_FLOAT, 0, SpaceShipObjectTexCoords);
 
 // draw data
-glDrawArrays(GL_TRIANGLES, 0, space_craft_001NumVerts);
+glDrawArrays(GL_TRIANGLES, 0, SpaceShipObjectNumVerts);
 */
 
-unsigned int space_craft_001NumVerts = 2544;
+unsigned int SpaceShipObjectNumVerts = 2544;
 
-float space_craft_001Verts [] = {
+float SpaceShipObjectVerts [] = {
   // f 109/1/1 2/2/2 114/3/3 321/4/4
   -0.00270257432475829, 0.0158717915730552, 0.0431701437542118,
   -0.0517522513293581, 0.0132536822382364, 0.0272511829539967,
@@ -3417,7 +3417,7 @@ float space_craft_001Verts [] = {
   0.387018985240098, -0.0814770887721268, -0.13797975597739,
 };
 
-float space_craft_001Normals [] = {
+float SpaceShipObjectNormals [] = {
   // f 109/1/1 2/2/2 114/3/3 321/4/4
   0.0236099899489697, -0.997980575148782, -0.0589689748962641,
   0.0660769923492759, -0.996695884597574, -0.0472349945308965,
@@ -6812,7 +6812,7 @@ float space_craft_001Normals [] = {
   -0.357512891251209, -0.917762720833601, 0.172904947405522,
 };
 
-float space_craft_001TexCoords [] = {
+float SpaceShipObjectTexCoords [] = {
   // f 109/1/1 2/2/2 114/3/3 321/4/4
   0.215358, 0.868108,
   0.240620, 0.861431,

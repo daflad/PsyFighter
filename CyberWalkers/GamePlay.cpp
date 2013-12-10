@@ -19,10 +19,10 @@ void GamePlay::setup(){
     }
     fprintf(stdout, "Status: Using GLEW %s\n", glewGetString(GLEW_VERSION));
     // Enable Light
-    quad = gluNewQuadric();
+
     //   glutTimerFunc(TIMERDELAY, updateScene, 0);
     glDepthRange(0, 100);
-    glutKeyboardFunc(keyInput);
+    //glutKeyboardFunc(keyInput);
 	glShadeModel(GL_SMOOTH);							// Enable Smooth Shading
 	glClearColor(0.0f, 0.0f, 0.0f, 0.5f);				// Black Background
 	glClearDepth(1.0f);									// Depth Buffer Setup

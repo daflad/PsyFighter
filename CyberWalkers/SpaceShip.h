@@ -10,16 +10,23 @@
 #define __CyberWalkers__SpaceShip__
 
 #include <iostream>
+#include "GL/glew.h"
+#include <GLUT/glut.h>
+#include "BMPLoader.h"
+#include "SpaceShipObject.h"
 
 class SpaceShip {
 
 public:
 
-    float x, y, z;
+    float x, y, z, ;
     
+    BMPClass bmp;
+    GLuint texture_id;
+    
+    SpaceShip();
     void setup();
-    void draw();
-    
+    void draw();    
 };
 
 #endif /* defined(__CyberWalkers__SpaceShip__) */

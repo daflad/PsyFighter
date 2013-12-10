@@ -46,26 +46,6 @@ void display(void)									// Here's Where We Do All The Drawing
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear Screen And Depth Buffer
 	glLoadIdentity();									// Reset The Current Modelview Matrix
     
-    // enble vertex arrays
-    // draw data
-    glEnableClientState(GL_NORMAL_ARRAY);
-    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-    glEnableClientState(GL_VERTEX_ARRAY);
-    
-    glBindTexture(GL_TEXTURE_2D, texture_id);
-    glVertexPointer(3, GL_FLOAT, 0, space_craft_001Verts);
-    glNormalPointer(GL_FLOAT, 0, space_craft_001Normals);
-    glTexCoordPointer(2, GL_FLOAT, 0, space_craft_001TexCoords);
-
-    glPushMatrix();
-    glScalef(yrot, yrot, yrot);
-    glTranslatef(xPos, -0.1, -1.05);
-    glRotatef(183, 0, 1, 0);
-    //glRotatef(20, 1, 0, 0);
-    //glRotatef(-30, 0, 0, 1);
-    glDrawArrays(GL_TRIANGLES, 0, space_craft_001NumVerts);
-    glPopMatrix();
-
     glPushMatrix();
     glScalef(phaz, phaz, phaz);
     glTranslatef(0.2, -0.5, -1.3);
@@ -74,10 +54,7 @@ void display(void)									// Here's Where We Do All The Drawing
     gluSphere(quad, 0.01, 10, 10);
     glPopMatrix();
 
-    // Disable client states:
-    glDisableClientState(GL_VERTEX_ARRAY);  // disable vertex arrays
-    glDisableClientState(GL_COLOR_ARRAY);
-    glDisableClientState(GL_NORMAL_ARRAY);
+    
     
     glutSwapBuffers();      //swaps the front and back buffers
 }
@@ -85,6 +62,32 @@ void display(void)									// Here's Where We Do All The Drawing
 /* Initialisation routine - acts like your typical constructor in a Java program. */
 void setup(void)										// All Setup For OpenGL Goes Here
 {
+    // call glewInit() to initialize the OpenGL extension entry points.
+    GLenum err = glewInit();
+    if (GLEW_OK != err)
+    {
+        /* Problem: glewInit failed, something is seriously wrong. */
+        fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
+        exit(0);
+    }
+    fprintf(stdout, "Status: Using GLEW %s\n", glewGetString(GLEW_VERSION));
+    								// Enable Light
+    quad = gluNewQuadric();
+ //   glutTimerFunc(TIMERDELAY, updateScene, 0);
+    glDepthRange(0, 100);
+    glutKeyboardFunc(keyInput);
+	glShadeModel(GL_SMOOTH);							// Enable Smooth Shading
+	glClearColor(0.0f, 0.0f, 0.0f, 0.5f);				// Black Background
+	glClearDepth(1.0f);									// Depth Buffer Setup
+	glEnable(GL_DEPTH_TEST);							// Enables Depth Testing
+	glDepthFunc(GL_LEQUAL);								// Type of depth testing to do
+	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);	// Really Nice Perspective Calculations
+    
+    glLightfv(GL_LIGHT1, GL_AMBIENT, lightAmbient);		// Setup The Ambient Light
+	glLightfv(GL_LIGHT1, GL_DIFFUSE, lightDiffuse);		// Setup The Diffuse Light
+	glLightfv(GL_LIGHT1, GL_POSITION,lightPosition);	// Position The Light
+	glEnable(GL_LIGHT1);								// Enable Light One
+    
     
 
 }
@@ -135,18 +138,18 @@ void keyInput(unsigned char key, int x, int y)
             break;
         case 119:
             yrot -= 0.01;
-//            if (yrot < 0) {
-//                yrot = 0;
-//            }
+            if (yrot < 0) {
+                yrot = 0;
+            }
             break;
         case 32:
             shootPhazer();
             break;
         case 115:
             yrot += 0.01;
-//            if (yrot > 1) {
-//                yrot = 1;
-//            }
+            if (yrot > 1) {
+                yrot = 1;
+            }
             break;
         default:
             break;
