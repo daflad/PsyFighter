@@ -42,14 +42,7 @@ void fire() {
 /* This is where you put all your OpenGL drawing commands */
 void display(void)									// Here's Where We Do All The Drawing
 {
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear Screen And Depth Buffer
-	glLoadIdentity();									// Reset The Current Modelview Matrix
-    
-    
 
-    
-    
-    glutSwapBuffers();      //swaps the front and back buffers
 }
 
 /* Initialisation routine - acts like your typical constructor in a Java program. */

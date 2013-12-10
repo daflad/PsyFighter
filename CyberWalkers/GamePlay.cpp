@@ -8,16 +8,19 @@
 
 #include "GamePlay.h"
 
-void GamePlay::setup(){
+using namespace std;
+
+void GamePlay::setup() {
     // call glewInit() to initialize the OpenGL extension entry points.
     GLenum err = glewInit();
-    if (GLEW_OK != err)
-    {
-        /* Problem: glewInit failed, something is seriously wrong. */
+    
+    if (GLEW_OK != err) {
+        // Lets hope ths doesn't happen!
         fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
         exit(0);
     }
-    fprintf(stdout, "Status: Using GLEW %s\n", glewGetString(GLEW_VERSION));
+    
+    printf("Status: Using GLEW %s\n", glewGetString(GLEW_VERSION));
     // Enable Light
 
     //   glutTimerFunc(TIMERDELAY, updateScene, 0);
@@ -32,14 +35,17 @@ void GamePlay::setup(){
 }
 
 void GamePlay::setupLights() {
-    lightDiffuse  = (float[]){ 1.0f, 1.0f, .5f, 1.0f };    // direct light
-    lightSpecular = (float[]){ 1.0f, 1.0f, .5f, 1.0f };    // highlight
-    lightAmbient  = (float[]){ .2f, .2f, .1f, 1.0f };  // scattered light
-    lightPosition = (float[]){ -4.0f, 4.0f, 4.0f, 1.0f };
-    glLightfv(GL_LIGHT1, GL_AMBIENT, lightAmbient);		// Setup The Ambient Light
-	glLightfv(GL_LIGHT1, GL_DIFFUSE, lightDiffuse);		// Setup The Diffuse Light
-	glLightfv(GL_LIGHT1, GL_POSITION,lightPosition);	// Position The Light
-	glEnable(GL_LIGHT1);								// Enable Light One
+    // Define light parameters
+    lightDiffuse  = (float[]) {  1.0f,  1.0f,   .5f,  1.0f };   // direct light
+    lightSpecular = (float[]) {  1.0f,  1.0f,   .5f,  1.0f };   // highlight
+    lightAmbient  = (float[]) {   .2f,   .2f,   .1f,  1.0f };   // scattered light
+    lightPosition = (float[]) { -4.0f,  4.0f,  4.0f,  1.0f };
+    // Apply to scene
+    glLightfv(GL_LIGHT1, GL_AMBIENT, lightAmbient);
+	glLightfv(GL_LIGHT1, GL_DIFFUSE, lightDiffuse);
+	glLightfv(GL_LIGHT1, GL_POSITION,lightPosition);
+    // Not forgetting to activate
+	glEnable(GL_LIGHT1);
 }
 
 /* Keyboard input processing routine */
@@ -88,7 +94,15 @@ void keyInput(unsigned char key, int x, int y)
 
 
 void GamePlay::draw(){
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear Screen And Depth Buffer
+	glLoadIdentity();									// Reset The Current Modelview Matrix
     
+    
+    
+    
+    
+    glutSwapBuffers();      //swaps the front and back buffers
+
 }
 
 void GamePlay::resize(int width, int height){

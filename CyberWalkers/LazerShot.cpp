@@ -8,26 +8,29 @@
 
 #include "LazerShot.h"
 
-LazerShot::LazerShot(){
-    
+LazerShot::LazerShot() {
+    x = 0.2;
+    y = 0;
+    z = 0;
 }
 
 // Initiate lazer values
-void LazerShot::init(){
-    
+void LazerShot::init() {
+    quad = gluNewQuadric();
 }
+
 // Update location of lazer in scene
-void LazerShot::update(){
-    
+void LazerShot::update() {
+    s -= 0.01;
 }
+
 // Draw lazer to screen
-void LazerShot::draw(){
-    
+void LazerShot::draw() {    
     glPushMatrix();
     glScalef(s, s, s);
-    glTranslatef(0.2, y, z);
+    glTranslatef(x, y, z);
     gluSphere(quad, lazerSize, gridCols, gridRows);
-    glTranslatef(-0.4, 0, 0);
+    glTranslatef(x-0.4, 0, 0);
     gluSphere(quad, lazerSize, gridCols, gridRows);
     glPopMatrix();
 }
