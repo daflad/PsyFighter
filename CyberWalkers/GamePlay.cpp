@@ -7,3 +7,15 @@
 //
 
 #include "GamePlay.h"
+
+void GamePlay::setup(){
+    
+}
+
+void GamePlay::draw(){
+    
+}
+
+void GamePlay::resize(int width, int height){
+    
+}

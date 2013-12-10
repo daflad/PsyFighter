@@ -14,7 +14,8 @@
 class SpaceShip {
 
 public:
-    
+
+    float x, y, z;
     
     void setup();
     void draw();

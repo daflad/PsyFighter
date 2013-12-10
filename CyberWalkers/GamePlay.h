@@ -13,10 +13,11 @@
 
 class GamePlay {
 public:
-    
+        
     
     void setup();
     void draw();
+    void resize(int width, int height);
 };
 
 #endif /* defined(__CyberWalkers__GamePlay__) */

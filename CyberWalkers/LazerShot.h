@@ -23,9 +23,7 @@ public:
     int gridCols;
     
     // Location values
-    float xCor;
-    float yCor;
-    float zCor;
+    float x, y, z;
     
     // Distance form spaceship
     float scaleFactor;
