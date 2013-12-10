@@ -4,7 +4,7 @@
 #include <thread>
 
 #include "template.h"
-#include "space_craft_001.h"
+#include "SpaceShip.h"
 #include "BMPLoader.h"
 #include "camera.h"
 
@@ -21,7 +21,6 @@ GLfloat	yrot = 1;				// Y Rotation
 GLfloat xPos = 0;
 GLfloat phaz = 1;
 
-GLUquadricObj *quad;
 
 long cur_fps=0;
 long old_time=0;
@@ -46,13 +45,7 @@ void display(void)									// Here's Where We Do All The Drawing
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear Screen And Depth Buffer
 	glLoadIdentity();									// Reset The Current Modelview Matrix
     
-    glPushMatrix();
-    glScalef(phaz, phaz, phaz);
-    glTranslatef(0.2, -0.5, -1.3);
-    gluSphere(quad, 0.01, 5, 5);
-    glTranslatef(-0.4, 0, 0);
-    gluSphere(quad, 0.01, 10, 10);
-    glPopMatrix();
+    
 
     
     

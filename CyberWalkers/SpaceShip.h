@@ -19,7 +19,7 @@ class SpaceShip {
 
 public:
 
-    float x, y, z, ;
+    float x, y, z, dist;
     
     BMPClass bmp;
     GLuint texture_id;

@@ -40,7 +40,7 @@ void SpaceShip::draw() {
     glTexCoordPointer(2, GL_FLOAT, 0, SpaceShipObjectTexCoords);
     
     glPushMatrix();
-    glScalef();
+    glScalef(dist, dist, dist);
     glTranslatef(x, -0.5, -1.05);
     glRotatef(183, 0, 1, 0);
     glRotatef(20, 1, 0, 0);

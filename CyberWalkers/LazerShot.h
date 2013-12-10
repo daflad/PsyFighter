@@ -10,6 +10,8 @@
 #define __CyberWalkers__LazerShot__
 
 #include <iostream>
+#include "GL/glew.h"
+#include <GLUT/glut.h>
 
 // Spaceship lazers
 // Glowing, scaling spheres
@@ -23,10 +25,9 @@ public:
     int gridCols;
     
     // Location values
-    float x, y, z;
+    float x, y, z, s;
     
-    // Distance form spaceship
-    float scaleFactor;
+    GLUquadricObj *quad;
     
     // Constructor
     LazerShot();
