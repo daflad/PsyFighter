@@ -21,24 +21,23 @@ void GamePlay::setup() {
     }
     
     printf("Status: Using GLEW %s\n", glewGetString(GLEW_VERSION));
-    // Enable Light
 
-    //   glutTimerFunc(TIMERDELAY, updateScene, 0);
     glDepthRange(0, 100);
-    //glutKeyboardFunc(keyInput);
-	glShadeModel(GL_SMOOTH);							// Enable Smooth Shading
-	glClearColor(0.0f, 0.0f, 0.0f, 0.5f);				// Black Background
-	glClearDepth(1.0f);									// Depth Buffer Setup
-	glEnable(GL_DEPTH_TEST);							// Enables Depth Testing
-	glDepthFunc(GL_LEQUAL);								// Type of depth testing to do
-	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);	// Really Nice Perspective Calculations
+    glutKeyboardFunc(keyInput);
+	glShadeModel(GL_SMOOTH);
+	glClearColor(0.0f, 0.0f, 0.0f, 0.5f);
+	glClearDepth(1.0f);
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LEQUAL);
+	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+    setupLights();
 }
 
 void GamePlay::setupLights() {
     // Define light parameters
-    lightDiffuse  = (float[]) {  1.0f,  1.0f,   .5f,  1.0f };   // direct light
-    lightSpecular = (float[]) {  1.0f,  1.0f,   .5f,  1.0f };   // highlight
-    lightAmbient  = (float[]) {   .2f,   .2f,   .1f,  1.0f };   // scattered light
+    lightDiffuse  = (float[]) {  1.0f,  1.0f,   .5f,  1.0f };
+    lightSpecular = (float[]) {  1.0f,  1.0f,   .5f,  1.0f };
+    lightAmbient  = (float[]) {   .2f,   .2f,   .1f,  1.0f };
     lightPosition = (float[]) { -4.0f,  4.0f,  4.0f,  1.0f };
     // Apply to scene
     glLightfv(GL_LIGHT1, GL_AMBIENT, lightAmbient);
@@ -49,7 +48,7 @@ void GamePlay::setupLights() {
 }
 
 /* Keyboard input processing routine */
-void keyInput(unsigned char key, int x, int y)
+void GamePlay::keyInput(unsigned char key, int x, int y)
 {
 //    // What's that code again??
 //    printf("key : %c : %i\n", key, key);

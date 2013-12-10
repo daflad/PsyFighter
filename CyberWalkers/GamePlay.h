@@ -29,7 +29,7 @@ public:
     void draw();
     void resize(int width, int height);
     void setupLights();
-    void keyInput(unsigned char key, int x, int y);
+    static void keyInput(unsigned char key, int x, int y);
 };
 
 #endif /* defined(__CyberWalkers__GamePlay__) */
