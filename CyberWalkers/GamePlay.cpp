@@ -38,6 +38,7 @@ void GamePlay::setup() {
     glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
     
     setupLights();
+    ship.setup();
 }
 
 void GamePlay::setupLights() {
@@ -106,7 +107,9 @@ void GamePlay::draw() {
 	glLoadIdentity();									// Reset The Current Modelview Matrix
     
     
+
     
+    SpaceShip::draw();
     
     
     glutSwapBuffers();
