@@ -27,7 +27,9 @@ public:
     float *lightAmbient;
     float *lightPosition;
     
-    GamePlay();
+    SpaceShip ship;
+    
+    GamePlay(unsigned int numV, float *ssInit[]);
     static void draw(void);
     void resize(int w, int h);
     void setup(void);

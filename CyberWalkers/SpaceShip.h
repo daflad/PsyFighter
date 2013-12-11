@@ -25,11 +25,12 @@ public:
     
     unsigned int SpaceShipObjectNumVerts;
 
-    float SpaceShipObjectVerts [426];
-    float SpaceShipObjectNormals [426];
-    float SpaceShipObjectTexCoords [646];
+    float *SpaceShipObjectVerts;
+    float *SpaceShipObjectNormals;
+    float *SpaceShipObjectTexCoords;
     
     SpaceShip();
+    void init(float *verts, float *norms, float *texts, unsigned int numV);
     void setup();
     void draw();
     

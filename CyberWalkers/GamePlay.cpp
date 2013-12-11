@@ -10,8 +10,8 @@
 
 using namespace std;
 
-GamePlay::GamePlay() {
-    
+GamePlay::GamePlay(unsigned int numV, float *ssInit[]) {
+    ship.init(ssInit[0], ssInit[1], ssInit[3], numV);
 }
 
 void GamePlay::setup() {

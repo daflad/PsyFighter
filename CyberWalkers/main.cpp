@@ -7,12 +7,13 @@
 //
 
 #include "GamePlay.h"
-
+#include "SpaceShipObject.h"
 
 
 int main(int argc, char** argv)
 {
-    GamePlay gp = GamePlay();
+    float *ssInit[] = {SpaceShipObjectVerts, SpaceShipObjectNormals, SpaceShipObjectTexCoords};
+    GamePlay gp = GamePlay(SpaceShipObjectNumVerts, ssInit);
     printf("Application Started");
     glutInit(&argc, argv);
     
