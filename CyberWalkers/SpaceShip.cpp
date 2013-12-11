@@ -9,9 +9,9 @@
 #include "SpaceShip.h"
 
 SpaceShip::SpaceShip() {
-    unsigned int SpaceShipObjectNumVerts = 2544;
+    SpaceShipObjectNumVerts = 2544;
     
-    float SpaceShipObjectVerts [] = {
+    SpaceShipObjectVerts = {
         // f 109/1/1 2/2/2 114/3/3 321/4/4
         -0.00270257432475829, 0.0158717915730552, 0.0431701437542118,
         -0.0517522513293581, 0.0132536822382364, 0.0272511829539967,
@@ -3406,7 +3406,7 @@ SpaceShip::SpaceShip() {
         0.387018985240098, -0.0814770887721268, -0.13797975597739,
     };
     
-    float SpaceShipObjectNormals [] = {
+    SpaceShipObjectNormals [] = {
         // f 109/1/1 2/2/2 114/3/3 321/4/4
         0.0236099899489697, -0.997980575148782, -0.0589689748962641,
         0.0660769923492759, -0.996695884597574, -0.0472349945308965,
@@ -6801,7 +6801,7 @@ SpaceShip::SpaceShip() {
         -0.357512891251209, -0.917762720833601, 0.172904947405522,
     };
     
-    float SpaceShipObjectTexCoords [] = {
+    SpaceShipObjectTexCoords = {
         // f 109/1/1 2/2/2 114/3/3 321/4/4
         0.215358, 0.868108,
         0.240620, 0.861431,
