@@ -58,7 +58,7 @@ void setup(void)										// All Setup For OpenGL Goes Here
     }
     fprintf(stdout, "Status: Using GLEW %s\n", glewGetString(GLEW_VERSION));
     								// Enable Light
-    quad = gluNewQuadric();
+   // quad = gluNewQuadric();
  //   glutTimerFunc(TIMERDELAY, updateScene, 0);
     glDepthRange(0, 100);
     glutKeyboardFunc(keyInput);

@@ -13,7 +13,6 @@
 #include "GL/glew.h"
 #include <GLUT/glut.h>
 #include "BMPLoader.h"
-#include "SpaceShipObject.h"
 
 class SpaceShip {
 
@@ -24,9 +23,15 @@ public:
     BMPClass bmp;
     GLuint texture_id;
     
+    unsigned int SpaceShipObjectNumVerts;
+    float *SpaceShipObjectVerts;
+    float *SpaceShipObjectNormals;
+    float *SpaceShipObjectTexCoords;
+    
     SpaceShip();
     void setup();
-    void draw();    
+    void draw();
+    
 };
 
 #endif /* defined(__CyberWalkers__SpaceShip__) */

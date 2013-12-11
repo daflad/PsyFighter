@@ -16,6 +16,8 @@
 #include <GLUT/glut.h>
 #include "BMPLoader.h"
 #include "camera.h"
+#include "SpaceShip.h"
+#include "LazerShot.h"
 
 class GamePlay {
 public:
@@ -25,11 +27,13 @@ public:
     float *lightAmbient;
     float *lightPosition;
     
-    void setup();
-    void draw();
-    void resize(int width, int height);
-    void setupLights();
+    GamePlay();
+    static void draw(void);
+    void resize(int w, int h);
+    void setup(void);
+    void updateScene(int value);
     static void keyInput(unsigned char key, int x, int y);
+    void setupLights();
 };
 
 #endif /* defined(__CyberWalkers__GamePlay__) */

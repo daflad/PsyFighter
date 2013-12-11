@@ -10,46 +10,55 @@
 
 using namespace std;
 
+GamePlay::GamePlay() {
+    
+}
+
 void GamePlay::setup() {
     // call glewInit() to initialize the OpenGL extension entry points.
     GLenum err = glewInit();
     
     if (GLEW_OK != err) {
         // Lets hope ths doesn't happen!
-        fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
+        printf("Error: %s\n", glewGetErrorString(err));
         exit(0);
     }
     
     printf("Status: Using GLEW %s\n", glewGetString(GLEW_VERSION));
 
-    glDepthRange(0, 100);
     glutKeyboardFunc(keyInput);
-	glShadeModel(GL_SMOOTH);
-	glClearColor(0.0f, 0.0f, 0.0f, 0.5f);
+    
+    glDepthRange(0, 100);
 	glClearDepth(1.0f);
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
-	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+	
+    glShadeModel(GL_SMOOTH);
+	glClearColor(0.0f, 0.0f, 0.0f, 0.5f);
+    glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+    
     setupLights();
 }
 
 void GamePlay::setupLights() {
+    
     // Define light parameters
     lightDiffuse  = (float[]) {  1.0f,  1.0f,   .5f,  1.0f };
     lightSpecular = (float[]) {  1.0f,  1.0f,   .5f,  1.0f };
     lightAmbient  = (float[]) {   .2f,   .2f,   .1f,  1.0f };
     lightPosition = (float[]) { -4.0f,  4.0f,  4.0f,  1.0f };
+    
     // Apply to scene
     glLightfv(GL_LIGHT1, GL_AMBIENT, lightAmbient);
 	glLightfv(GL_LIGHT1, GL_DIFFUSE, lightDiffuse);
 	glLightfv(GL_LIGHT1, GL_POSITION,lightPosition);
+    
     // Not forgetting to activate
 	glEnable(GL_LIGHT1);
 }
 
 /* Keyboard input processing routine */
-void GamePlay::keyInput(unsigned char key, int x, int y)
-{
+void GamePlay::keyInput(unsigned char key, int x, int y) {
 //    // What's that code again??
 //    printf("key : %c : %i\n", key, key);
 //    switch(key)
@@ -92,7 +101,7 @@ void GamePlay::keyInput(unsigned char key, int x, int y)
 }
 
 
-void GamePlay::draw(){
+void GamePlay::draw() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear Screen And Depth Buffer
 	glLoadIdentity();									// Reset The Current Modelview Matrix
     
@@ -100,10 +109,10 @@ void GamePlay::draw(){
     
     
     
-    glutSwapBuffers();      //swaps the front and back buffers
+    glutSwapBuffers();
 
 }
 
-void GamePlay::resize(int width, int height){
+void GamePlay::resize(int width, int height) {
     
 }

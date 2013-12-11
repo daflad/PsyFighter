@@ -6,16 +6,13 @@
 //  Copyright (c) 2013 Liang Sun. All rights reserved.
 //
 
-#include <iostream>
-#include <stdlib.h>
-#include <math.h>
-#include <GLUT/glut.h>
-#include "template.h"
+#include "GamePlay.h"
 
 
 
 int main(int argc, char** argv)
 {
+    GamePlay gp = GamePlay();
     printf("Application Started");
     glutInit(&argc, argv);
     
@@ -25,9 +22,9 @@ int main(int argc, char** argv)
     glutInitWindowPosition(20, 20);
     glutCreateWindow("GLUT Program");
     
-    glutDisplayFunc(display);
-    
-    setup();
+    glutDisplayFunc(GamePlay::draw);
+    glutKeyboardFunc(GamePlay::keyInput);
+    gp.setup();
     glutMainLoop();
     return 0;
 }
