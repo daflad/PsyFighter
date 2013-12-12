@@ -23,6 +23,7 @@ int main(int argc, char** argv)
     
     glutDisplayFunc(display);
     glutKeyboardFunc(keyInput);
+    glutReshapeFunc(resize);
     gp.setup(space_craft_001NumVerts, ssInit);
     glutMainLoop();
     return 0;
@@ -33,9 +34,9 @@ void display(void){
 }
 
 void resize(int w, int h){
-    
+    gp.resize(w,h);
 }
 
 void keyInput(unsigned char key, int x, int y){
-    
+    gp.keyInput(key, x, y);
 }

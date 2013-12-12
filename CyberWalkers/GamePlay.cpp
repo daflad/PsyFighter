@@ -28,18 +28,14 @@ void GamePlay::setup(unsigned int numV, float *ssInit[]) {
 
     //glutKeyboardFunc(keyInput);
     
-    glDepthRange(0, 100);
+    glShadeModel(GL_SMOOTH);
+	glClearColor(0.0f, 0.0f, 0.0f, 0.5f);
 	glClearDepth(1.0f);
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
-	
-    glShadeModel(GL_SMOOTH);
-	glClearColor(0.0f, 0.0f, 0.0f, 0.5f);
-    glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
-    
+	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
     setupLights();
-    ship.init(ssInit[0], ssInit[1], ssInit[3], numV);
-    ship.setup();
+    ship.setup(ssInit[0], ssInit[1], ssInit[3], numV);
 }
 
 void GamePlay::setupLights() {
@@ -114,5 +110,14 @@ void GamePlay::draw() {
 }
 
 void GamePlay::resize(int width, int height) {
+    if(height == 0)
+		height = 1;
     
+	glViewport(0, 0, width, height);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+    
+	gluPerspective(45.0f, GLfloat(width)/GLfloat(height), 0.1f, 100.0f);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
 }

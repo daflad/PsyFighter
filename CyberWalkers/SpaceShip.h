@@ -24,14 +24,9 @@ public:
     GLuint texture_id;
     
     unsigned int SpaceShipObjectNumVerts;
-
-    float *SpaceShipObjectVerts;
-    float *SpaceShipObjectNormals;
-    float *SpaceShipObjectTexCoords;
     
     SpaceShip();
-    void init(float *verts, float *norms, float *texts, unsigned int numV);
-    void setup();
+    void setup(float *verts, float *norms, float *texts, unsigned int numV);
     void draw();
     
 };
