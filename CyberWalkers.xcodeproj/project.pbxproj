@@ -41,6 +41,7 @@
 		6D392D1D18501D9F00B49AD2 /* BMPLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BMPLoader.cpp; sourceTree = "<group>"; };
 		6D535D60184D258E003E60D0 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		6DF8AAEE18585F4000C2695B /* SpaceShipObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceShipObject.h; sourceTree = "<group>"; };
+		6DF8AAEF185882B100C2695B /* main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
 		EE0B67E21805D25800527B67 /* CyberWalkers */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CyberWalkers; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE0B67E71805D25800527B67 /* CyberWalkers.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = CyberWalkers.1; sourceTree = "<group>"; };
 		EE0B67EE1805D28500527B67 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -81,17 +82,18 @@
 		EE0B67E41805D25800527B67 /* CyberWalkers */ = {
 			isa = PBXGroup;
 			children = (
-				6DF8AAEE18585F4000C2695B /* SpaceShipObject.h */,
-				EE0B67E71805D25800527B67 /* CyberWalkers.1 */,
 				6D392D1D18501D9F00B49AD2 /* BMPLoader.cpp */,
-				6D0C75ED185655DA008EA65A /* GamePlay.cpp */,
-				6D0C75E918560716008EA65A /* LazerShot.cpp */,
-				6D535D60184D258E003E60D0 /* main.cpp */,
-				6D0C75F018565661008EA65A /* SpaceShip.cpp */,
 				6D392D1C18501D9F00B49AD2 /* BMPLoader.h */,
+				EE0B67E71805D25800527B67 /* CyberWalkers.1 */,
+				6D0C75ED185655DA008EA65A /* GamePlay.cpp */,
 				6D0C75EE185655DA008EA65A /* GamePlay.h */,
+				6D0C75E918560716008EA65A /* LazerShot.cpp */,
 				6D0C75EA18560716008EA65A /* LazerShot.h */,
+				6D535D60184D258E003E60D0 /* main.cpp */,
+				6DF8AAEF185882B100C2695B /* main.h */,
+				6D0C75F018565661008EA65A /* SpaceShip.cpp */,
 				6D0C75F118565661008EA65A /* SpaceShip.h */,
+				6DF8AAEE18585F4000C2695B /* SpaceShipObject.h */,
 			);
 			path = CyberWalkers;
 			sourceTree = "<group>";

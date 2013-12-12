@@ -29,10 +29,11 @@ public:
     
     SpaceShip ship;
     
-    GamePlay(unsigned int numV, float *ssInit[]);
-    static void draw(void);
+    GamePlay();
+    
+    void draw();
     void resize(int w, int h);
-    void setup(void);
+    void setup(unsigned int numV, float *ssInit[]);
     void updateScene(int value);
     static void keyInput(unsigned char key, int x, int y);
     void setupLights();

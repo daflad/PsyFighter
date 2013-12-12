@@ -10,11 +10,11 @@
 
 using namespace std;
 
-GamePlay::GamePlay(unsigned int numV, float *ssInit[]) {
-    ship.init(ssInit[0], ssInit[1], ssInit[3], numV);
+GamePlay::GamePlay() {
+    
 }
 
-void GamePlay::setup() {
+void GamePlay::setup(unsigned int numV, float *ssInit[]) {
     // call glewInit() to initialize the OpenGL extension entry points.
     GLenum err = glewInit();
     
@@ -26,7 +26,7 @@ void GamePlay::setup() {
     
     printf("Status: Using GLEW %s\n", glewGetString(GLEW_VERSION));
 
-    glutKeyboardFunc(keyInput);
+    //glutKeyboardFunc(keyInput);
     
     glDepthRange(0, 100);
 	glClearDepth(1.0f);
@@ -38,6 +38,7 @@ void GamePlay::setup() {
     glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
     
     setupLights();
+    ship.init(ssInit[0], ssInit[1], ssInit[3], numV);
     ship.setup();
 }
 
@@ -106,11 +107,7 @@ void GamePlay::draw() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear Screen And Depth Buffer
 	glLoadIdentity();									// Reset The Current Modelview Matrix
     
-    
-
-    
-    SpaceShip::draw();
-    
+    ship.draw();
     
     glutSwapBuffers();
 

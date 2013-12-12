@@ -47,15 +47,14 @@
 #include <string>
 typedef unsigned char BYTE;
 
-class BMPClass
-{
-public:
-	BMPClass();
-	~BMPClass();
-	BYTE& pixel(int x,int y,int c);
-	void allocateMem();
-	int width,height;
-	BYTE* bytes;			//OpenGL formatted pixels
+class BMPClass {
+    public:
+        BMPClass();
+        ~BMPClass();
+        BYTE& pixel(int x,int y,int c);
+        void allocateMem();
+        int width,height;
+        BYTE* bytes;			//OpenGL formatted pixels
 };
 
 #define BMPError char

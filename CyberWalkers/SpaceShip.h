@@ -18,21 +18,21 @@ class SpaceShip {
 
 public:
 
-    static float x, y, z, dist;
+    float x, y, z, dist;
     
     BMPClass bmp;
-    static GLuint texture_id;
+    GLuint texture_id;
     
-    static unsigned int SpaceShipObjectNumVerts;
+    unsigned int SpaceShipObjectNumVerts;
 
-    static float *SpaceShipObjectVerts;
-    static float *SpaceShipObjectNormals;
-    static float *SpaceShipObjectTexCoords;
+    float *SpaceShipObjectVerts;
+    float *SpaceShipObjectNormals;
+    float *SpaceShipObjectTexCoords;
     
     SpaceShip();
     void init(float *verts, float *norms, float *texts, unsigned int numV);
     void setup();
-    static void draw();
+    void draw();
     
 };
 
