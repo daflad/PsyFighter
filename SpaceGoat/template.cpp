@@ -1,6 +1,10 @@
 #include "template.h"
 #include "space_craft_001.h"
 
+using namespace std;
+
+GLuint texture_id;
+
 /* This is where you put all your OpenGL drawing commands */
 void display(void)                                                                        // Here's Where We Do All The Drawing
 {
@@ -32,10 +36,19 @@ void setup(void)                                                                
     
     
     // set input data to arrays
-    //    glVertexPointer(3, GL_FLOAT, 0, space_craft_001Verts);
-    //    glNormalPointer(GL_FLOAT, 0, space_craft_001Normals);
-    //    glTexCoordPointer(2, GL_FLOAT, 0, space_craft_001TexCoords);
+    glVertexPointer(3, GL_FLOAT, 0, space_craft_001Verts);
+    glNormalPointer(GL_FLOAT, 0, space_craft_001Normals);
+    glTexCoordPointer(2, GL_FLOAT, 0, space_craft_001TexCoords);
     
+    glEnable ( GL_TEXTURE_2D );
+    glGenTextures(1, &texture_id);
+    string fname = "/Users/stephenjohnrussell/dev/SpaceGoat/SpaceGoat/texture.bmp";
+    BMPClass bmp;
+	BMPLoad(fname,bmp);
+    glBindTexture ( GL_TEXTURE_2D, texture_id);
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
+    glTexImage2D(GL_TEXTURE_2D,0,3,bmp.width,bmp.height,0,GL_RGB,GL_UNSIGNED_BYTE,bmp.bytes);
 }
 
 /* Tells the program how to resize your OpenGL Window */
