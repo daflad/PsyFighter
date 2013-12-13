@@ -22,20 +22,17 @@ SpaceShip::SpaceShip() {
     x = 0;
     y = 0;
     z = 0;
-    dist = 0.8;
+    dist = 1;
 }
 
 void SpaceShip::setup(float *verts, float *norms, float *texts, unsigned int numV) {
     SpaceShipObjectNumVerts = numV;
     std::string f = "/Users/stephenjohnrussell/dev/CyberWalkers/CyberWalkers/spaceship.bmp";
     glEnable ( GL_TEXTURE_2D );
-    glEnableClientState(GL_NORMAL_ARRAY);
-    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-    glEnableClientState(GL_VERTEX_ARRAY);
-    
-    checkError("Setup :: glBindTexture");
+//    glEnableClientState(GL_NORMAL_ARRAY);
+//    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+//    glEnableClientState(GL_VERTEX_ARRAY);
     glGenTextures (1, &texture_id);
-    checkError("Setup :: glBindTexture");
 	BMPLoad(f, bmp);
     glBindTexture ( GL_TEXTURE_2D, texture_id );
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -44,14 +41,10 @@ void SpaceShip::setup(float *verts, float *norms, float *texts, unsigned int num
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     //Map the image to the texture
     glTexImage2D(GL_TEXTURE_2D,0,GL_RGB,bmp.width,bmp.height,0,GL_RGB,GL_UNSIGNED_BYTE,bmp.bytes);
-    checkError("Setup :: glBindTexture");
     // set input data to arrays
     glVertexPointer(3, GL_FLOAT, 0, verts);
-    checkError("Setup :: glBindTexture");
     glNormalPointer(GL_FLOAT, 0, norms);
-    checkError("Setup :: glBindTexture");
     glTexCoordPointer(2, GL_FLOAT, 0, texts);
-    checkError("Setup :: glBindTexture");
 }
 
 void SpaceShip::draw() {
