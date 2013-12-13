@@ -15,6 +15,7 @@
 #include "GL/glew.h"
 #include <GLUT/glut.h>
 #include "SpaceShip.h"
+#include "Plannet.h"
 
 class GamePlay {
 public:
@@ -24,7 +25,13 @@ public:
     float *lightAmbient;
     float *lightPosition;
     
+    float xPos, yPos, zPos, dist;
+    
     SpaceShip ship;
+    Plannet globe;
+    
+    GLuint texture_id[2];
+    GLuint tex_ind;
     
     GamePlay();
     

@@ -12,6 +12,7 @@
 		6D436D31185A956B006182D1 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D436D30185A956B006182D1 /* OpenGL.framework */; };
 		6D436D33185A9571006182D1 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D436D32185A9571006182D1 /* GLUT.framework */; };
 		6D436D36185A9659006182D1 /* BMPLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D436D34185A9659006182D1 /* BMPLoader.cpp */; };
+		6D837C66185B453800B889D5 /* Plannet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D837C64185B453800B889D5 /* Plannet.cpp */; };
 		6D9BF25F185AA0EE00F9D189 /* GamePlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BF25B185AA0EE00F9D189 /* GamePlay.cpp */; };
 		6D9BF260185AA0EE00F9D189 /* SpaceShip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BF25D185AA0EE00F9D189 /* SpaceShip.cpp */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,9 @@
 		6D436D34185A9659006182D1 /* BMPLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BMPLoader.cpp; sourceTree = "<group>"; };
 		6D436D35185A9659006182D1 /* BMPLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMPLoader.h; sourceTree = "<group>"; };
 		6D436D37185A9738006182D1 /* space_craft_001.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = space_craft_001.h; sourceTree = "<group>"; };
+		6D837C64185B453800B889D5 /* Plannet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Plannet.cpp; sourceTree = "<group>"; };
+		6D837C65185B453800B889D5 /* Plannet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plannet.h; sourceTree = "<group>"; };
+		6D837C67185B49E300B889D5 /* globe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = globe.h; sourceTree = "<group>"; };
 		6D9BF25B185AA0EE00F9D189 /* GamePlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GamePlay.cpp; sourceTree = "<group>"; };
 		6D9BF25C185AA0EE00F9D189 /* GamePlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePlay.h; sourceTree = "<group>"; };
 		6D9BF25D185AA0EE00F9D189 /* SpaceShip.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpaceShip.cpp; sourceTree = "<group>"; };
@@ -80,11 +84,14 @@
 			isa = PBXGroup;
 			children = (
 				6D9BF261185AA29A00F9D189 /* main.h */,
+				6D837C64185B453800B889D5 /* Plannet.cpp */,
+				6D837C65185B453800B889D5 /* Plannet.h */,
 				6D9BF25B185AA0EE00F9D189 /* GamePlay.cpp */,
 				6D9BF25C185AA0EE00F9D189 /* GamePlay.h */,
 				6D9BF25D185AA0EE00F9D189 /* SpaceShip.cpp */,
 				6D9BF25E185AA0EE00F9D189 /* SpaceShip.h */,
 				6D436D37185A9738006182D1 /* space_craft_001.h */,
+				6D837C67185B49E300B889D5 /* globe.h */,
 				6D436D34185A9659006182D1 /* BMPLoader.cpp */,
 				6D436D35185A9659006182D1 /* BMPLoader.h */,
 				6D436D27185A94B2006182D1 /* main.cpp */,
@@ -148,6 +155,7 @@
 				6D9BF25F185AA0EE00F9D189 /* GamePlay.cpp in Sources */,
 				6D436D28185A94B2006182D1 /* main.cpp in Sources */,
 				6D9BF260185AA0EE00F9D189 /* SpaceShip.cpp in Sources */,
+				6D837C66185B453800B889D5 /* Plannet.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,8 +233,9 @@
 		6D436D2E185A94B2006182D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/glew/1.10.0/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_LDFLAGS = "-lGLEW";
@@ -238,8 +247,9 @@
 		6D436D2F185A94B2006182D1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/glew/1.10.0/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_LDFLAGS = "-lGLEW";

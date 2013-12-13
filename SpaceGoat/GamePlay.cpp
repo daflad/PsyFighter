@@ -11,7 +11,15 @@
 using namespace std;
 
 GamePlay::GamePlay() {
-    ship = *new SpaceShip();
+    ship = SpaceShip();
+    ship.setID(texture_id[0]);
+    globe = Plannet();
+    globe.setID(texture_id[1]);
+    xPos = 0;
+    yPos = 0;
+    zPos = 0;
+    dist = 0;
+    tex_ind = 0;
 }
 
 void GamePlay::setup() {
@@ -34,7 +42,13 @@ void GamePlay::setup() {
     glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
     glDepthFunc(GL_LEQUAL);
     glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+    
+    glEnable ( GL_TEXTURE_2D );
+    glGenTextures(2, texture_id);
     ship.setup();
+    ship.setID(texture_id[tex_ind++]);
+    globe.setup();
+    globe.setID(texture_id[tex_ind++]);
 }
 
 /* Keyboard input processing routine */
@@ -45,55 +59,55 @@ void GamePlay::keyInput(unsigned char key, int x, int y) {
             exit(0);
             break;
         case 119:
-            ship.y -= 0.01;
-            printf("dist:%f\n",ship.dist);
+            yPos -= 0.1;
+            printf("dist:%f\n",ship.y);
             break;
         case 115:
-            ship.y += 0.01;
-            printf("dist:%f\n",ship.dist);
+            yPos += 0.1;
+            printf("dist:%f\n",ship.y);
             break;
         case 97:
-            ship.x -= 0.01;
-            printf("dist:%f\n",ship.dist);
+            xPos -= 0.1;
+            printf("dist:%f\n",ship.x);
             break;
         case 100:
-            ship.x += 0.01;
-            printf("dist:%f\n",ship.dist);
+            xPos += 0.1;
+            printf("dist:%f\n",ship.x);
             break;
         case 113:
-            ship.z -= 0.01;
-            printf("dist:%f\n",ship.dist);
+            zPos -= 0.1;
+            printf("dist:%f\n",ship.z);
             break;
         case 101:
-            ship.z += 0.01;
-            printf("dist:%f\n",ship.dist);
+            zPos += 0.1;
+            printf("dist:%f\n",ship.z);
             break;
         case 122:
-            ship.dist -= 0.01;
+            dist -= 0.1;
             if (ship.dist < 0) {
                 ship.dist = 0.001;
             }
             printf("dist:%f\n",ship.dist);
             break;
         case 120:
-            ship.dist += 0.01;
-            printf("dist:%f\n",ship.dist);
-            break;
-        case 106:
-            ship.yaw--;
+            dist += 0.1;
             printf("dist:%f\n",ship.dist);
             break;
         case 108:
+            ship.yaw--;
+            printf("dist:%i\n",ship.yaw);
+            break;
+        case 106:
             ship.yaw++;
-            printf("dist:%f\n",ship.dist);
+            printf("dist:%i\n",ship.yaw);
             break;
         case 105:
             ship.pitch--;
-            printf("dist:%f\n",ship.dist);
+            printf("dist:%in",ship.pitch);
             break;
         case 107:
             ship.pitch++;
-            printf("dist:%f\n",ship.dist);
+            printf("dist:%i\n",ship.pitch);
             break;
         case 39:
             //Nothing yet but will be go!! 39 = ' apostophie
@@ -113,6 +127,11 @@ void GamePlay::draw() {
     glPushMatrix();
     ship.draw();
     glPopMatrix();
+    glPushMatrix();
+    glTranslatef(xPos, yPos, zPos);
+    globe.draw();
+    glPopMatrix();
+    
     glutSwapBuffers();
 }
 
