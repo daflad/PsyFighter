@@ -24,15 +24,17 @@ GLuint checkError(const char *context)
 SpaceShip::SpaceShip() {
     x = 0;
     y = 0;
-    z = 0;
-    dist = 0.2;
+    z = -0.5;
+    yaw = 0;
+    pitch = 0;
+    dist = 1;
 }
 
 void SpaceShip::setup() {
     // set input data to arrays
-    glVertexPointer(3, GL_FLOAT, 0, space_craft_001Verts);
-    glNormalPointer(GL_FLOAT, 0, space_craft_001Normals);
-    glTexCoordPointer(2, GL_FLOAT, 0, space_craft_001TexCoords);
+    glVertexPointer(3, GL_FLOAT, 0, v_quads);
+    glNormalPointer(GL_FLOAT, 0, vn_quads);
+    glTexCoordPointer(2, GL_FLOAT, 0, vt_quads);
     
     glEnable ( GL_TEXTURE_2D );
     glGenTextures(1, &texture_id);
@@ -49,14 +51,16 @@ void SpaceShip::draw() {
     glEnableClientState(GL_NORMAL_ARRAY);
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
     glEnableClientState(GL_VERTEX_ARRAY);
-    glVertexPointer(3, GL_FLOAT, 0, space_craft_001Verts);
-    glNormalPointer(GL_FLOAT, 0, space_craft_001Normals);
-    glTexCoordPointer(2, GL_FLOAT, 0, space_craft_001TexCoords);
+    glVertexPointer(3, GL_FLOAT, 0, v_quads);
+    glNormalPointer(GL_FLOAT, 0, vn_quads);
+    glTexCoordPointer(2, GL_FLOAT, 0, vt_quads);
+    glTranslatef(x, y, z);
+    glRotatef(yaw, 0, 1, 0);
+    glRotatef(pitch, 1, 0, 0);
     glScalef(dist, dist, dist);
-    glTranslatef(0, -0.18, -1.15);
-    glRotatef(3, 0, 1, 0);
-    glRotatef(20, 1, 0, 0);
-    glDrawArrays(GL_TRIANGLES, 0, space_craft_001NumVerts);
+//    if(glLockArraysEXT!=NULL) {glLockArraysEXT (0,1696);}
+    glDrawArrays(GL_QUADS, 0, 1696);
+//    if(glUnlockArraysEXT!=NULL) {glUnlockArraysEXT();}
     glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_COLOR_ARRAY);
     glDisableClientState(GL_NORMAL_ARRAY);

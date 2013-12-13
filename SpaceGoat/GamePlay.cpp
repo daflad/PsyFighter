@@ -30,6 +30,8 @@ void GamePlay::setup() {
     glClearColor(0.0f, 0.0f, 0.0f, 0.5f);
     glClearDepth(10.0f);
     glEnable(GL_DEPTH_TEST);
+    glEnable( GL_BLEND );
+    glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
     glDepthFunc(GL_LEQUAL);
     glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
     ship.setup();
@@ -42,9 +44,62 @@ void GamePlay::keyInput(unsigned char key, int x, int y) {
         case 27:
             exit(0);
             break;
-        case 32:
+        case 119:
+            ship.y -= 0.01;
+            printf("dist:%f\n",ship.dist);
+            break;
+        case 115:
+            ship.y += 0.01;
+            printf("dist:%f\n",ship.dist);
+            break;
+        case 97:
+            ship.x -= 0.01;
+            printf("dist:%f\n",ship.dist);
+            break;
+        case 100:
+            ship.x += 0.01;
+            printf("dist:%f\n",ship.dist);
+            break;
+        case 113:
+            ship.z -= 0.01;
+            printf("dist:%f\n",ship.dist);
+            break;
+        case 101:
+            ship.z += 0.01;
+            printf("dist:%f\n",ship.dist);
+            break;
+        case 122:
+            ship.dist -= 0.01;
+            if (ship.dist < 0) {
+                ship.dist = 0.001;
+            }
+            printf("dist:%f\n",ship.dist);
+            break;
+        case 120:
             ship.dist += 0.01;
             printf("dist:%f\n",ship.dist);
+            break;
+        case 106:
+            ship.yaw--;
+            printf("dist:%f\n",ship.dist);
+            break;
+        case 108:
+            ship.yaw++;
+            printf("dist:%f\n",ship.dist);
+            break;
+        case 105:
+            ship.pitch--;
+            printf("dist:%f\n",ship.dist);
+            break;
+        case 107:
+            ship.pitch++;
+            printf("dist:%f\n",ship.dist);
+            break;
+        case 39:
+            //Nothing yet but will be go!! 39 = ' apostophie
+            break;
+        case 32:
+            //Nothing yet but will be fire!! 32 = space
             break;
         default:
             break;
