@@ -233,8 +233,8 @@
 		6D436D2E185A94B2006182D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
-				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/glew/1.10.0/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
@@ -247,8 +247,8 @@
 		6D436D2F185A94B2006182D1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
-				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
 				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/glew/1.10.0/lib;
 				MACOSX_DEPLOYMENT_TARGET = 10.8;

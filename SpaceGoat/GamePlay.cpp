@@ -12,9 +12,7 @@ using namespace std;
 
 GamePlay::GamePlay() {
     ship = SpaceShip();
-    ship.setID(texture_id[0]);
     globe = Plannet();
-    globe.setID(texture_id[1]);
     xPos = 0;
     yPos = 0;
     zPos = 0;
@@ -44,11 +42,12 @@ void GamePlay::setup() {
     glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
     
     glEnable ( GL_TEXTURE_2D );
-    glGenTextures(2, texture_id);
-    ship.setup();
+    GLuint *textures = new GLuint[2];
+    glGenTextures(2, textures);
     ship.setID(texture_id[tex_ind++]);
-    globe.setup();
     globe.setID(texture_id[tex_ind++]);
+    ship.setup();
+    globe.setup();
 }
 
 /* Keyboard input processing routine */
@@ -60,54 +59,21 @@ void GamePlay::keyInput(unsigned char key, int x, int y) {
             break;
         case 119:
             yPos -= 0.1;
-            printf("dist:%f\n",ship.y);
             break;
         case 115:
             yPos += 0.1;
-            printf("dist:%f\n",ship.y);
             break;
         case 97:
             xPos -= 0.1;
-            printf("dist:%f\n",ship.x);
             break;
         case 100:
             xPos += 0.1;
-            printf("dist:%f\n",ship.x);
             break;
         case 113:
             zPos -= 0.1;
-            printf("dist:%f\n",ship.z);
             break;
         case 101:
             zPos += 0.1;
-            printf("dist:%f\n",ship.z);
-            break;
-        case 122:
-            dist -= 0.1;
-            if (ship.dist < 0) {
-                ship.dist = 0.001;
-            }
-            printf("dist:%f\n",ship.dist);
-            break;
-        case 120:
-            dist += 0.1;
-            printf("dist:%f\n",ship.dist);
-            break;
-        case 108:
-            ship.yaw--;
-            printf("dist:%i\n",ship.yaw);
-            break;
-        case 106:
-            ship.yaw++;
-            printf("dist:%i\n",ship.yaw);
-            break;
-        case 105:
-            ship.pitch--;
-            printf("dist:%in",ship.pitch);
-            break;
-        case 107:
-            ship.pitch++;
-            printf("dist:%i\n",ship.pitch);
             break;
         case 39:
             //Nothing yet but will be go!! 39 = ' apostophie

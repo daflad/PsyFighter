@@ -10,12 +10,12 @@
 
 using namespace std;
 
-int main(int argc, char** argv)
-{
+int main(int argc, char** argv) {
     
     printf("Application Started");
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE | GLUT_DEPTH);
+    
     gp = GamePlay();
     glutInitWindowSize(1280, 800);
     glutInitWindowPosition(20, 20);

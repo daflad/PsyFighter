@@ -21,7 +21,7 @@ public:
     float x, y, z, dist;
     int yaw, pitch;
     BMPClass bmp;
-    GLuint texture_id[];
+    GLuint texture_id_ship;
     
     SpaceShip();
     void setup();
