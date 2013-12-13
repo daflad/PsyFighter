@@ -28,7 +28,7 @@ void GamePlay::setup() {
     
     glShadeModel(GL_SMOOTH);
     glClearColor(0.0f, 0.0f, 0.0f, 0.5f);
-    glClearDepth(1000.0f);
+    glClearDepth(10.0f);
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LEQUAL);
     glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
@@ -43,7 +43,7 @@ void GamePlay::keyInput(unsigned char key, int x, int y) {
             exit(0);
             break;
         case 32:
-            ship.dist -= 0.1;
+            ship.dist += 0.01;
             printf("dist:%f\n",ship.dist);
             break;
         default:
@@ -55,7 +55,9 @@ void GamePlay::keyInput(unsigned char key, int x, int y) {
 void GamePlay::draw() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);        
     glLoadIdentity();
+    glPushMatrix();
     ship.draw();
+    glPopMatrix();
     glutSwapBuffers();
 }
 
