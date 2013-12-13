@@ -12,7 +12,6 @@
 		6D436D31185A956B006182D1 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D436D30185A956B006182D1 /* OpenGL.framework */; };
 		6D436D33185A9571006182D1 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D436D32185A9571006182D1 /* GLUT.framework */; };
 		6D436D36185A9659006182D1 /* BMPLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D436D34185A9659006182D1 /* BMPLoader.cpp */; };
-		6D436D3A185A9738006182D1 /* template.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D436D38185A9738006182D1 /* template.cpp */; };
 		6D9BF25F185AA0EE00F9D189 /* GamePlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BF25B185AA0EE00F9D189 /* GamePlay.cpp */; };
 		6D9BF260185AA0EE00F9D189 /* SpaceShip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BF25D185AA0EE00F9D189 /* SpaceShip.cpp */; };
 /* End PBXBuildFile section */
@@ -39,12 +38,11 @@
 		6D436D34185A9659006182D1 /* BMPLoader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BMPLoader.cpp; sourceTree = "<group>"; };
 		6D436D35185A9659006182D1 /* BMPLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMPLoader.h; sourceTree = "<group>"; };
 		6D436D37185A9738006182D1 /* space_craft_001.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = space_craft_001.h; sourceTree = "<group>"; };
-		6D436D38185A9738006182D1 /* template.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = template.cpp; sourceTree = "<group>"; };
-		6D436D39185A9738006182D1 /* template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = template.h; sourceTree = "<group>"; };
 		6D9BF25B185AA0EE00F9D189 /* GamePlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GamePlay.cpp; sourceTree = "<group>"; };
 		6D9BF25C185AA0EE00F9D189 /* GamePlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamePlay.h; sourceTree = "<group>"; };
 		6D9BF25D185AA0EE00F9D189 /* SpaceShip.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpaceShip.cpp; sourceTree = "<group>"; };
 		6D9BF25E185AA0EE00F9D189 /* SpaceShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceShip.h; sourceTree = "<group>"; };
+		6D9BF261185AA29A00F9D189 /* main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,13 +79,12 @@
 		6D436D26185A94B2006182D1 /* SpaceGoat */ = {
 			isa = PBXGroup;
 			children = (
+				6D9BF261185AA29A00F9D189 /* main.h */,
 				6D9BF25B185AA0EE00F9D189 /* GamePlay.cpp */,
 				6D9BF25C185AA0EE00F9D189 /* GamePlay.h */,
 				6D9BF25D185AA0EE00F9D189 /* SpaceShip.cpp */,
 				6D9BF25E185AA0EE00F9D189 /* SpaceShip.h */,
 				6D436D37185A9738006182D1 /* space_craft_001.h */,
-				6D436D38185A9738006182D1 /* template.cpp */,
-				6D436D39185A9738006182D1 /* template.h */,
 				6D436D34185A9659006182D1 /* BMPLoader.cpp */,
 				6D436D35185A9659006182D1 /* BMPLoader.h */,
 				6D436D27185A94B2006182D1 /* main.cpp */,
@@ -150,7 +147,6 @@
 				6D436D36185A9659006182D1 /* BMPLoader.cpp in Sources */,
 				6D9BF25F185AA0EE00F9D189 /* GamePlay.cpp in Sources */,
 				6D436D28185A94B2006182D1 /* main.cpp in Sources */,
-				6D436D3A185A9738006182D1 /* template.cpp in Sources */,
 				6D9BF260185AA0EE00F9D189 /* SpaceShip.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

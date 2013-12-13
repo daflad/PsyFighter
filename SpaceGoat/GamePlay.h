@@ -14,10 +14,7 @@
 #include <iostream>
 #include "GL/glew.h"
 #include <GLUT/glut.h>
-#include "BMPLoader.h"
-#include "camera.h"
 #include "SpaceShip.h"
-#include "LazerShot.h"
 
 class GamePlay {
 public:
@@ -33,9 +30,9 @@ public:
     
     void draw();
     void resize(int w, int h);
-    void setup(unsigned int numV, float *ssInit[]);
+    void setup();
     void updateScene(int value);
-    static void keyInput(unsigned char key, int x, int y);
+    void keyInput(unsigned char key, int x, int y);
     void setupLights();
 };
 

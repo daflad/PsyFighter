@@ -11,10 +11,10 @@
 using namespace std;
 
 GamePlay::GamePlay() {
-    
+    ship = *new SpaceShip();
 }
 
-void GamePlay::setup(unsigned int numV, float *ssInit[]) {
+void GamePlay::setup() {
     // call glewInit() to initialize the OpenGL extension entry points.
     GLenum err = glewInit();
     
@@ -25,40 +25,26 @@ void GamePlay::setup(unsigned int numV, float *ssInit[]) {
     }
     
     printf("Status: Using GLEW %s\n", glewGetString(GLEW_VERSION));
-
+    
     glShadeModel(GL_SMOOTH);
     glClearColor(0.0f, 0.0f, 0.0f, 0.5f);
-    glClearDepth(1.0f);
+    glClearDepth(1000.0f);
     glEnable(GL_DEPTH_TEST);
-    glDepthFunc(GL_LEQUAL); 
+    glDepthFunc(GL_LEQUAL);
     glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
-    //setupLights();
-    ship.setup(ssInit[0], ssInit[1], ssInit[3], numV);
-}
-
-void GamePlay::setupLights() {
-    
-    // Define light parameters
-    lightDiffuse  = (float[]) {  1.0f,  1.0f,   .5f,  1.0f };
-    lightSpecular = (float[]) {  1.0f,  1.0f,   .5f,  1.0f };
-    lightAmbient  = (float[]) {   .2f,   .2f,   .1f,  1.0f };
-    lightPosition = (float[]) { -4.0f,  4.0f,  4.0f,  1.0f };
-    
-    // Apply to scene
-    glLightfv(GL_LIGHT1, GL_AMBIENT, lightAmbient);
-	glLightfv(GL_LIGHT1, GL_DIFFUSE, lightDiffuse);
-	glLightfv(GL_LIGHT1, GL_POSITION,lightPosition);
-    
-    // Not forgetting to activate
-	glEnable(GL_LIGHT1);
+    ship.setup();
 }
 
 /* Keyboard input processing routine */
-void GamePlay::keyInput(unsigned char key, int x, int y) {    switch(key)
-    {
-            // Press escape to exit.
+void GamePlay::keyInput(unsigned char key, int x, int y) {
+    switch(key) {
+        // Press escape to exit.
         case 27:
             exit(0);
+            break;
+        case 32:
+            ship.dist -= 0.1;
+            printf("dist:%f\n",ship.dist);
             break;
         default:
             break;

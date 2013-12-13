@@ -26,7 +26,7 @@ public:
     unsigned int SpaceShipObjectNumVerts;
     
     SpaceShip();
-    void setup(float *verts, float *norms, float *texts, unsigned int numV);
+    void setup();
     void draw();
     
 };
