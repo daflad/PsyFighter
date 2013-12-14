@@ -18,7 +18,7 @@ SpaceShip::SpaceShip() {
     z = -0.2;
     yaw = 0;
     pitch = 0;
-    dist = 1;    
+    dist = 1;
 }
 
 void SpaceShip::setID(GLuint texture_id) {
@@ -26,11 +26,8 @@ void SpaceShip::setID(GLuint texture_id) {
 }
 
 void SpaceShip::setup() {
-    
     string fname = "/Users/stephenjohnrussell/dev/SpaceGoat/SpaceGoat/textures/texture.bmp";
 	BMPLoad(fname,bmp);
-    
-
 }
 
 void SpaceShip::draw() {
