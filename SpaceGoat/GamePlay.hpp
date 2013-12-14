@@ -29,7 +29,6 @@ public:
     float xPos, yPos, zPos, dist;
     
     SpaceShip ship;
-    Plannet globe;
     SolarSystem solar;
     
     GLuint texture_id[2];

@@ -9,13 +9,15 @@
 #ifndef __SpaceGoat__SolarSystem__
 #define __SpaceGoat__SolarSystem__
 
+// C++ Libs
 #include <iostream>
-#include <math.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include <vector>
+
 #include "GL/glew.h"
 #include <GLUT/glut.h>
 #include "Plannet.hpp"
+
+using namespace std;
 
 class SolarSystem {
     
@@ -23,7 +25,8 @@ public:
     
     int numPlannets;
     
-    Plannet *plannets;
+    vector<Plannet> plannets;
+    vector<GLuint>  textures;
 
     SolarSystem();
     void setup();

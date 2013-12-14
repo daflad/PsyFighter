@@ -12,7 +12,6 @@ using namespace std;
 
 GamePlay::GamePlay() {
     ship = SpaceShip();
-    globe = Plannet();
     solar = SolarSystem();
     xPos = 0;
     yPos = 0;
@@ -47,9 +46,8 @@ void GamePlay::setup() {
     GLuint *textures = new GLuint[2];
     glGenTextures(2, textures);
     ship.setID(texture_id[tex_ind++]);
-    globe.setID(texture_id[tex_ind++]);
     ship.setup();
-    globe.setup();
+    solar.setup();
 }
 
 /* Keyboard input processing routine */
@@ -97,7 +95,7 @@ void GamePlay::draw() {
     glPopMatrix();
     glPushMatrix();
     glTranslatef(xPos, yPos, zPos);
-    globe.draw();
+    solar.draw();
     glPopMatrix();
     
     glutSwapBuffers();

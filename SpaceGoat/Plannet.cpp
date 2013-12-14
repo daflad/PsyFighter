@@ -35,7 +35,8 @@ void Plannet::setup() {
 //    glTexCoordPointer(2, GL_FLOAT, 0, vt_quads_g);
 //    glNormalPointer(GL_FLOAT, 0, vn_quads_g);
     
-    string fname = "/Users/stephenjohnrussell/dev/SpaceGoat/SpaceGoat/world00.bmp";
+    int pli = rand() % 8;
+    string fname = "/Users/stephenjohnrussell/dev/SpaceGoat/SpaceGoat/world0" + to_string(pli) + ".bmp";
 	BMPLoad(fname,bmp1);
 }
 

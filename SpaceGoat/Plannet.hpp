@@ -9,9 +9,12 @@
 #ifndef __SpaceGoat__Plannet__
 #define __SpaceGoat__Plannet__
 
+// C++ Libs
 #include <iostream>
+// OpenGL Libs
 #include "GL/glew.h"
 #include <GLUT/glut.h>
+// Local headers
 #include "BMPLoader.hpp"
 
 class Plannet {
