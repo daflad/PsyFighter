@@ -11,7 +11,7 @@
 using namespace std;
 
 SolarSystem::SolarSystem() {
-    numPlannets = rand() % 9 + 1;
+    numPlannets = rand() % 8 + 5;
     printf("Number Of Plannets : %i\n", numPlannets);
 }
 
