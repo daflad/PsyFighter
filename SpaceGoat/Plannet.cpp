@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Stephen John Russell. All rights reserved.
 //
 
-#include "Plannet.h"
-#include "globe.h"
+#include "Plannet.hpp"
+#include "globe.hpp"
 
 
 using namespace std;
@@ -16,9 +16,12 @@ Plannet::Plannet() {
     x = 0;
     y = 0;
     z = 0;
-    yaw = 0;
-    pitch = 0;
-    dist = 1;
+}
+
+void Plannet::setLocation(int xx, int yy, int zz) {
+    x = xx;
+    y = yy;
+    z = zz;
 }
 
 void Plannet::setID(GLuint texture_id) {
@@ -37,6 +40,8 @@ void Plannet::setup() {
 }
 
 void Plannet::draw() {
+    glPushMatrix();
+    glTranslatef(x, y, z);
     glEnableClientState(GL_NORMAL_ARRAY);
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
     glEnableClientState(GL_VERTEX_ARRAY);
@@ -51,4 +56,5 @@ void Plannet::draw() {
     glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_COLOR_ARRAY);
     glDisableClientState(GL_NORMAL_ARRAY);
+    glPopMatrix();
 }

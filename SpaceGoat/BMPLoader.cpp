@@ -42,7 +42,7 @@
 */
 
 
-#include "BMPLoader.h"
+#include "BMPLoader.hpp"
 
 BMPClass::BMPClass(){bytes=0;}
 BMPClass::~BMPClass(){delete[] bytes;}

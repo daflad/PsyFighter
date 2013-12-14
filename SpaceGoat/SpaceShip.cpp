@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Stephen John Russell. All rights reserved.
 //
 
-#include "SpaceShip.h"
-#include "space_craft_001.h"
+#include "SpaceShip.hpp"
+#include "space_craft_001.hpp"
 
 
 using namespace std;

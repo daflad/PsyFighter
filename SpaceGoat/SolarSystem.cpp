@@ -6,11 +6,13 @@
 //  Copyright (c) 2013 Stephen John Russell. All rights reserved.
 //
 
-#include "SolarSystem.h"
+#include "SolarSystem.hpp"
 
+using namespace std;
 
 SolarSystem::SolarSystem() {
-    numPlannets = 1;
+    numPlannets = rand() % 9 + 1;
+    printf("Number Of Plannets : %i\n", numPlannets);
 }
 
 void SolarSystem::setup() {

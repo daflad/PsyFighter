@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Liang Sun. All rights reserved.
 //
 
-#include "main.h"
+#include "main.hpp"
 
 using namespace std;
 
