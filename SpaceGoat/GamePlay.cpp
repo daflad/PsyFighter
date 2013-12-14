@@ -13,6 +13,7 @@ using namespace std;
 GamePlay::GamePlay() {
     ship = SpaceShip();
     globe = Plannet();
+    solar = SolarSystem();
     xPos = 0;
     yPos = 0;
     zPos = 0;
@@ -23,6 +24,7 @@ GamePlay::GamePlay() {
 void GamePlay::setup() {
     // call glewInit() to initialize the OpenGL extension entry points.
     GLenum err = glewInit();
+    
     
     if (GLEW_OK != err) {
         // Lets hope ths doesn't happen!

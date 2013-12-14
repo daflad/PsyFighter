@@ -16,6 +16,7 @@
 #include <GLUT/glut.h>
 #include "SpaceShip.h"
 #include "Plannet.h"
+#include "SolarSystem.h"
 
 class GamePlay {
 public:
@@ -29,6 +30,7 @@ public:
     
     SpaceShip ship;
     Plannet globe;
+    SolarSystem solar;
     
     GLuint texture_id[2];
     GLuint tex_ind;

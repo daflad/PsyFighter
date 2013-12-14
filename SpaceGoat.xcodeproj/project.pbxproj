@@ -15,6 +15,7 @@
 		6D837C66185B453800B889D5 /* Plannet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D837C64185B453800B889D5 /* Plannet.cpp */; };
 		6D9BF25F185AA0EE00F9D189 /* GamePlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BF25B185AA0EE00F9D189 /* GamePlay.cpp */; };
 		6D9BF260185AA0EE00F9D189 /* SpaceShip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6D9BF25D185AA0EE00F9D189 /* SpaceShip.cpp */; };
+		6DAFF4FF185C06F6008888B9 /* SolarSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DAFF4FD185C06F6008888B9 /* SolarSystem.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +48,8 @@
 		6D9BF25D185AA0EE00F9D189 /* SpaceShip.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpaceShip.cpp; sourceTree = "<group>"; };
 		6D9BF25E185AA0EE00F9D189 /* SpaceShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceShip.h; sourceTree = "<group>"; };
 		6D9BF261185AA29A00F9D189 /* main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
+		6DAFF4FD185C06F6008888B9 /* SolarSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SolarSystem.cpp; sourceTree = "<group>"; };
+		6DAFF4FE185C06F6008888B9 /* SolarSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SolarSystem.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,19 +86,21 @@
 		6D436D26185A94B2006182D1 /* SpaceGoat */ = {
 			isa = PBXGroup;
 			children = (
+				6D436D34185A9659006182D1 /* BMPLoader.cpp */,
+				6D436D35185A9659006182D1 /* BMPLoader.h */,
+				6D9BF25B185AA0EE00F9D189 /* GamePlay.cpp */,
+				6D9BF25C185AA0EE00F9D189 /* GamePlay.h */,
+				6D837C67185B49E300B889D5 /* globe.h */,
+				6D436D27185A94B2006182D1 /* main.cpp */,
 				6D9BF261185AA29A00F9D189 /* main.h */,
 				6D837C64185B453800B889D5 /* Plannet.cpp */,
 				6D837C65185B453800B889D5 /* Plannet.h */,
-				6D9BF25B185AA0EE00F9D189 /* GamePlay.cpp */,
-				6D9BF25C185AA0EE00F9D189 /* GamePlay.h */,
+				6DAFF4FD185C06F6008888B9 /* SolarSystem.cpp */,
+				6DAFF4FE185C06F6008888B9 /* SolarSystem.h */,
+				6D436D37185A9738006182D1 /* space_craft_001.h */,
+				6D436D29185A94B2006182D1 /* SpaceGoat.1 */,
 				6D9BF25D185AA0EE00F9D189 /* SpaceShip.cpp */,
 				6D9BF25E185AA0EE00F9D189 /* SpaceShip.h */,
-				6D436D37185A9738006182D1 /* space_craft_001.h */,
-				6D837C67185B49E300B889D5 /* globe.h */,
-				6D436D34185A9659006182D1 /* BMPLoader.cpp */,
-				6D436D35185A9659006182D1 /* BMPLoader.h */,
-				6D436D27185A94B2006182D1 /* main.cpp */,
-				6D436D29185A94B2006182D1 /* SpaceGoat.1 */,
 			);
 			path = SpaceGoat;
 			sourceTree = "<group>";
@@ -153,6 +158,7 @@
 			files = (
 				6D436D36185A9659006182D1 /* BMPLoader.cpp in Sources */,
 				6D9BF25F185AA0EE00F9D189 /* GamePlay.cpp in Sources */,
+				6DAFF4FF185C06F6008888B9 /* SolarSystem.cpp in Sources */,
 				6D436D28185A94B2006182D1 /* main.cpp in Sources */,
 				6D9BF260185AA0EE00F9D189 /* SpaceShip.cpp in Sources */,
 				6D837C66185B453800B889D5 /* Plannet.cpp in Sources */,
