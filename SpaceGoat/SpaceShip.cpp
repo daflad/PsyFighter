@@ -27,7 +27,7 @@ void SpaceShip::setID(GLuint texture_id) {
 
 void SpaceShip::setup() {
     
-    string fname = "/Users/stephenjohnrussell/dev/SpaceGoat/SpaceGoat/texture.bmp";
+    string fname = "/Users/stephenjohnrussell/dev/SpaceGoat/SpaceGoat/textures/texture.bmp";
 	BMPLoad(fname,bmp);
     
 

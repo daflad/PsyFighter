@@ -68,11 +68,10 @@
 		6D436D1B185A94B2006182D1 = {
 			isa = PBXGroup;
 			children = (
-				6DAFF501185C3298008888B9 /* Models */,
 				6D436D32185A9571006182D1 /* GLUT.framework */,
 				6D436D30185A956B006182D1 /* OpenGL.framework */,
-				6D436D26185A94B2006182D1 /* SpaceGoat */,
 				6D436D25185A94B2006182D1 /* Products */,
+				6D436D26185A94B2006182D1 /* SpaceGoat */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,6 +86,7 @@
 		6D436D26185A94B2006182D1 /* SpaceGoat */ = {
 			isa = PBXGroup;
 			children = (
+				6DAFF501185C3298008888B9 /* Models */,
 				6D436D34185A9659006182D1 /* BMPLoader.cpp */,
 				6D436D35185A9659006182D1 /* BMPLoader.hpp */,
 				6D9BF25B185AA0EE00F9D189 /* GamePlay.cpp */,
@@ -111,6 +111,7 @@
 				6D436D37185A9738006182D1 /* space_craft_001.hpp */,
 			);
 			name = Models;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
