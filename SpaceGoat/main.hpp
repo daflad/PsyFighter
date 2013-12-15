@@ -17,6 +17,7 @@
 void display(void);
 void resize(int w, int h);
 void keyInput(unsigned char key, int x, int y);
+void update();
 GamePlay gp;
 
 #endif

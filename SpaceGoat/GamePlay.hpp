@@ -39,6 +39,7 @@ public:
     void draw();
     void resize(int w, int h);
     void setup();
+    void update();
     void updateScene(int value);
     void keyInput(unsigned char key, int x, int y);
     void setupLights();

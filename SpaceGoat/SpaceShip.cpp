@@ -9,7 +9,6 @@
 #include "SpaceShip.hpp"
 #include "space_craft_001.hpp"
 
-
 using namespace std;
 
 SpaceShip::SpaceShip() {
