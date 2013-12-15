@@ -26,7 +26,7 @@ public:
     float *lightAmbient;
     float *lightPosition;
     
-    float xPos, yPos, zPos, dist;
+    float xPos, yPos, zPos, dist, yaw, pitch;
     
     SpaceShip ship;
     SolarSystem solar;

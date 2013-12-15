@@ -27,6 +27,8 @@ void SolarSystem::setup() {
 
 void SolarSystem::draw() {
     for (int i = 0; i < numPlannets; i++) {
+        glPushMatrix();
         plannets.at(i).draw();
+        glPopMatrix();
     }
 }

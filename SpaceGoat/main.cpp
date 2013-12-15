@@ -30,7 +30,7 @@ void CalculateFPS()
         cur_fps = 0;
         old_time =getTimer();
     }
-    sprintf(temp,"Bunny mesh using vertex buffer objects: %d fps", old_fps);
+    sprintf(temp,"Bunny mesh using vertex buffer objects: %ld fps", old_fps);
     glutSetWindowTitle(temp);
 }
 
@@ -67,10 +67,9 @@ void resize(int w, int h){
 void keyInput(unsigned char key, int x, int y){
     gp.keyInput(key, x, y);
     printf("key : %c : %i\n",key,key);
-    display();
 }
 
 void update() {
-    CalculateFPS();
+    //CalculateFPS();
     glutPostRedisplay();
 }

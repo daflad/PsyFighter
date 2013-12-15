@@ -16,12 +16,12 @@
 #include <GLUT/glut.h>
 // Local headers
 #include "BMPLoader.hpp"
-
+#include <math.h>
 class Plannet {
     
 public:
     
-    float x, y, z;
+    float x, y, z, s;
     BMPClass bmp1;
     GLuint texture_id_planet;
     

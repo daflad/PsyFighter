@@ -16,6 +16,8 @@ GamePlay::GamePlay() {
     xPos = 0;
     yPos = 0;
     zPos = 0;
+    yaw = 0;
+    pitch = 0;
     dist = 0;
     tex_ind = 0;
 }
@@ -64,16 +66,22 @@ void GamePlay::keyInput(unsigned char key, int x, int y) {
             yPos += 0.1;
             break;
         case 97:
-            xPos -= 0.1;
-            break;
-        case 100:
             xPos += 0.1;
             break;
+        case 100:
+            xPos -= 0.1;
+            break;
         case 113:
-            zPos -= 0.1;
+            zPos -= 1;
             break;
         case 101:
             zPos += 0.1;
+            break;
+        case 106:
+            yaw -= 1;
+            break;
+        case 108:
+            yaw += 1;
             break;
         case 39:
             //Nothing yet but will be go!! 39 = ' apostophie
@@ -93,8 +101,11 @@ void GamePlay::draw() {
     glPushMatrix();
     ship.draw();
     glPopMatrix();
+    
     glPushMatrix();
     glTranslatef(xPos, yPos, zPos);
+    glRotatef(yaw, 0, 1, 0);
+    glRotatef(pitch, 0, 0, 1);
     solar.draw();
     glPopMatrix();
     

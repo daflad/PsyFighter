@@ -16,6 +16,7 @@ Plannet::Plannet() {
     x = 0;
     y = 0;
     z = 0;
+    s = rand() % 10;
 }
 
 void Plannet::setLocation(int xx, int yy, int zz) {
@@ -53,6 +54,7 @@ void Plannet::draw() {
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_SPHERE_MAP);
 	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_SPHERE_MAP);
     glTexImage2D(GL_TEXTURE_2D,0,3,bmp1.width,bmp1.height,0,GL_RGB,GL_UNSIGNED_BYTE,bmp1.bytes);
+    glScalef(s, s, s);
     glDrawArrays(GL_QUADS, 0, 1440);
     glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_COLOR_ARRAY);
