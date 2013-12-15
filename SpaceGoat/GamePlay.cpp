@@ -20,12 +20,12 @@ GamePlay::GamePlay() {
     pitch = 0;
     dist = 0;
     tex_ind = 0;
+    intiKeyBools();
 }
 
 void GamePlay::setup() {
     // call glewInit() to initialize the OpenGL extension entry points.
     GLenum err = glewInit();
-    
     
     if (GLEW_OK != err) {
         // Lets hope ths doesn't happen!
@@ -36,20 +36,27 @@ void GamePlay::setup() {
     printf("Status: Using GLEW %s\n", glewGetString(GLEW_VERSION));
     
     glShadeModel(GL_SMOOTH);
-    glClearColor(0.0f, 0.0f, 0.0f, 0.5f);
-    glClearDepth(1.0f);
     glEnable(GL_DEPTH_TEST);
     glEnable( GL_BLEND );
     glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
     glDepthFunc(GL_LEQUAL);
     glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
-    
+    glClearColor(0.0f, 0.0f, 0.0f, 0.5f);
+    glClearDepth(1.0f);
+    glutIgnoreKeyRepeat(1);
     glEnable ( GL_TEXTURE_2D );
     GLuint *textures = new GLuint[2];
     glGenTextures(2, textures);
+    
     ship.setID(texture_id[tex_ind++]);
     ship.setup();
     solar.setup();
+}
+
+void GamePlay::intiKeyBools(){
+    for (int i = 0; i < 256; i++) {
+        keyStrokes[i] = false;
+    }
 }
 
 /* Keyboard input processing routine */

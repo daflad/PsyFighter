@@ -48,7 +48,8 @@ int main(int argc, char** argv) {
     
     // Begin processing
     glutDisplayFunc(display);
-    glutKeyboardFunc(keyInput);
+    glutKeyboardFunc(keyDown);
+    glutKeyboardUpFunc(keyUp);
     glutReshapeFunc(resize);
     glutIdleFunc(update);
     gp.setup();
@@ -64,8 +65,13 @@ void resize(int w, int h){
     gp.resize(w,h);
 }
 
-void keyInput(unsigned char key, int x, int y){
-    gp.keyInput(key, x, y);
+void keyUp(unsigned char key, int x, int y){
+    gp.keyStrokes[key] = false;
+    printf("key : %c : %i\n",key,key);
+}
+
+void keyDown(unsigned char key, int x, int y){
+    gp.keyStrokes[key] = true;
     printf("key : %c : %i\n",key,key);
 }
 

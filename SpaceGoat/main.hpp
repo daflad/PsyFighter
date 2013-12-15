@@ -16,7 +16,8 @@
 // These are the functions that you will use to create and interact with your GL scene:
 void display(void);
 void resize(int w, int h);
-void keyInput(unsigned char key, int x, int y);
+void keyUp(unsigned char key, int x, int y);
+void keyDown(unsigned char key, int x, int y);
 void update();
 GamePlay gp;
 

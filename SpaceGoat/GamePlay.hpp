@@ -27,6 +27,7 @@ public:
     float *lightPosition;
     
     float xPos, yPos, zPos, dist, yaw, pitch;
+    bool keyStrokes[256];
     
     SpaceShip ship;
     SolarSystem solar;
@@ -43,6 +44,9 @@ public:
     void updateScene(int value);
     void keyInput(unsigned char key, int x, int y);
     void setupLights();
+    void intiKeyBools();
+    void keyDown(unsigned char key, int x, int y);
+    void keyUp(unsigned char key, int x, int y);
 };
 
 #endif /* defined(__CyberWalkers__GamePlay__) */
