@@ -18,8 +18,8 @@ class SpaceShip {
 
 public:
 
-    float x, y, z, dist;
-    int yaw, pitch;
+    float x, y, z, dist, speed;
+    int yaw, pitch, roll;
     BMPClass bmp;
     GLuint texture_id_ship;
     
@@ -27,6 +27,8 @@ public:
     void setup();
     void draw();
     void setID(GLuint texture_id);
+    
+    
 };
 
 #endif /* defined(__CyberWalkers__SpaceShip__) */

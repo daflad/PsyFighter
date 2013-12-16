@@ -17,7 +17,9 @@ SpaceShip::SpaceShip() {
     z = -0.2;
     yaw = 0;
     pitch = 0;
+    roll = 0;
     dist = 1;
+    speed = 0;
 }
 
 void SpaceShip::setID(GLuint texture_id) {

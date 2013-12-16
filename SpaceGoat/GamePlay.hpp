@@ -26,7 +26,7 @@ public:
     float *lightAmbient;
     float *lightPosition;
     
-    float xPos, yPos, zPos, dist, yaw, pitch;
+    float xPos, yPos, zPos, dist, yaw, lyaw, pitch, lpitch, roll, speed;
     bool keyStrokes[256];
     
     SpaceShip ship;

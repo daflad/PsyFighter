@@ -67,15 +67,16 @@ void resize(int w, int h){
 
 void keyUp(unsigned char key, int x, int y){
     gp.keyStrokes[key] = false;
-    printf("key : %c : %i\n",key,key);
+    printf("key : %c : %i\n",key,gp.keyStrokes[key]);
 }
 
 void keyDown(unsigned char key, int x, int y){
     gp.keyStrokes[key] = true;
-    printf("key : %c : %i\n",key,key);
+    printf("key : %c : %i\n",key,gp.keyStrokes[key]);
 }
 
 void update() {
+    gp.update();
     //CalculateFPS();
     glutPostRedisplay();
 }

@@ -42,7 +42,6 @@ void Plannet::setup() {
 }
 
 void Plannet::draw() {
-    glPushMatrix();
     glTranslatef(x, y, z);
     glEnableClientState(GL_NORMAL_ARRAY);
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
@@ -59,5 +58,4 @@ void Plannet::draw() {
     glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_COLOR_ARRAY);
     glDisableClientState(GL_NORMAL_ARRAY);
-    glPopMatrix();
 }

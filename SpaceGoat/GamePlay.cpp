@@ -17,10 +17,14 @@ GamePlay::GamePlay() {
     yPos = 0;
     zPos = 0;
     yaw = 0;
+    lyaw = 0;
     pitch = 0;
+    lpitch = 0;
+    roll = 0;
+    speed = 0;
     dist = 0;
     tex_ind = 0;
-    intiKeyBools();
+    //intiKeyBools();
 }
 
 void GamePlay::setup() {
@@ -53,67 +57,81 @@ void GamePlay::setup() {
     solar.setup();
 }
 
+float deg2rad(float d) {
+    return d * M_PI / 180;
+}
+
+void GamePlay::update() {
+    printf("yaw\t:%f\npitch\t:%f\nroll\t:%f\n",yaw, pitch, roll);
+    if (keyStrokes['w'] == true || keyStrokes['W'] == true) {
+        pitch -= 1;
+    }
+    if (keyStrokes['s'] == true || keyStrokes['S'] == true) {
+        pitch += 1;
+    }
+    if (keyStrokes['a'] == true || keyStrokes['A'] == true) {
+        yaw -= 1;
+    }
+    if (keyStrokes['d'] == true || keyStrokes['D'] == true) {
+        yaw += 1;
+    }
+    if (keyStrokes['q'] == true || keyStrokes['Q'] == true) {
+        roll -= 1;
+    }
+    if (keyStrokes['e'] == true || keyStrokes['E'] == true) {
+        roll += 1;
+    }
+    if (keyStrokes['i'] == true || keyStrokes['I'] == true) {
+        speed += 0.001;
+    }
+    if (keyStrokes['k'] == true || keyStrokes['K'] == true) {
+        speed -= 0.001;
+    }
+    if (pitch > 359) {
+        pitch = 0;
+    }
+    if (pitch < 1) {
+        pitch = 360;
+    }
+    if (yaw > 135) {
+        xPos = xPos + (speed * sin(deg2rad(yaw - lyaw)));
+    } else {
+        xPos = xPos - (speed * sin(deg2rad(yaw - lyaw)));
+    }
+    if (pitch < 90 || pitch > 245) {
+        yPos = yPos + (speed * sin(deg2rad(pitch - lpitch)));
+    } else {
+        yPos = yPos - (speed * sin(deg2rad(pitch - lpitch)));
+    }
+    if (yaw > 45 || yaw < 270) {
+        zPos = zPos + (speed * cos(deg2rad(yaw - lyaw)));
+    } else {
+        zPos = zPos - (speed * cos(deg2rad(yaw - lyaw)));
+    }
+    lyaw = yaw;
+    lpitch = pitch;
+}
+
 void GamePlay::intiKeyBools(){
     for (int i = 0; i < 256; i++) {
         keyStrokes[i] = false;
     }
 }
 
-/* Keyboard input processing routine */
-void GamePlay::keyInput(unsigned char key, int x, int y) {
-    switch(key) {
-        // Press escape to exit.
-        case 27:
-            exit(0);
-            break;
-        case 119:
-            yPos -= 0.1;
-            break;
-        case 115:
-            yPos += 0.1;
-            break;
-        case 97:
-            xPos += 0.1;
-            break;
-        case 100:
-            xPos -= 0.1;
-            break;
-        case 113:
-            zPos -= 1;
-            break;
-        case 101:
-            zPos += 0.1;
-            break;
-        case 106:
-            yaw -= 1;
-            break;
-        case 108:
-            yaw += 1;
-            break;
-        case 39:
-            //Nothing yet but will be go!! 39 = ' apostophie
-            break;
-        case 32:
-            //Nothing yet but will be fire!! 32 = space
-            break;
-        default:
-            break;
-    }
-}
-
-
 void GamePlay::draw() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);        
-    glLoadIdentity();
+
     glPushMatrix();
+    glRotatef(roll, 0, 0, 1);
     ship.draw();
-    glPopMatrix();
-    
     glPushMatrix();
-    glTranslatef(xPos, yPos, zPos);
     glRotatef(yaw, 0, 1, 0);
-    glRotatef(pitch, 0, 0, 1);
+    glRotatef(pitch, 1, 0, 0);
+    glTranslatef(xPos, yPos, zPos);
+    glPushMatrix();
     solar.draw();
+    glPopMatrix();
+    glPopMatrix();
     glPopMatrix();
     
     glutSwapBuffers();
