@@ -82,32 +82,43 @@ void GamePlay::update() {
         roll += 1;
     }
     if (keyStrokes['i'] == true || keyStrokes['I'] == true) {
-        speed += 0.001;
+        speed += 0.0001;
     }
     if (keyStrokes['k'] == true || keyStrokes['K'] == true) {
-        speed -= 0.001;
+        speed -= 0.0001;
     }
-    if (pitch > 359) {
-        pitch = 0;
-    }
-    if (pitch < 1) {
-        pitch = 360;
-    }
-    if (yaw > 135) {
-        xPos = xPos + (speed * sin(deg2rad(yaw - lyaw)));
-    } else {
-        xPos = xPos - (speed * sin(deg2rad(yaw - lyaw)));
-    }
-    if (pitch < 90 || pitch > 245) {
-        yPos = yPos + (speed * sin(deg2rad(pitch - lpitch)));
-    } else {
-        yPos = yPos - (speed * sin(deg2rad(pitch - lpitch)));
-    }
-    if (yaw > 45 || yaw < 270) {
-        zPos = zPos + (speed * cos(deg2rad(yaw - lyaw)));
-    } else {
-        zPos = zPos - (speed * cos(deg2rad(yaw - lyaw)));
-    }
+//    if (pitch > 360) {
+//        pitch = 0;
+//    }
+//    if (pitch < 0) {
+//        pitch = 360;
+//    }
+//    if (yaw > 359) {
+//        yaw = 0;
+//    }
+//    if (yaw < 1) {
+//        yaw = 360;
+//    }
+    
+    float dfo = sqrt((xPos * xPos) + (zPos * zPos));
+    
+    float xInc = (dfo + speed) * sin(deg2rad(yaw - lyaw));
+    float yInc = (dfo + speed) * sin(deg2rad(pitch - lyaw));
+    float zInc = (dfo + speed) * cos(deg2rad(yaw - lyaw));
+    
+    printf("x\t:%f\ny\t:%f\nz\t:%f\n",xInc, yInc, zInc);
+//    
+//    if (yaw > 90 && yaw < 270) {
+//        zInc *= -1;
+//    }
+//    if (yaw < 180 || yaw > 275) {
+//        xInc *= -1;
+//    }
+    
+    xPos = xInc;
+    yPos = yInc;
+    zPos = zInc;
+    
     lyaw = yaw;
     lpitch = pitch;
 }
@@ -120,17 +131,18 @@ void GamePlay::intiKeyBools(){
 
 void GamePlay::draw() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);        
-
+    glLoadIdentity();
     glPushMatrix();
     glRotatef(roll, 0, 0, 1);
     ship.draw();
+    glPopMatrix();
     glPushMatrix();
+    glLoadIdentity();
     glRotatef(yaw, 0, 1, 0);
     glRotatef(pitch, 1, 0, 0);
     glTranslatef(xPos, yPos, zPos);
     glPushMatrix();
     solar.draw();
-    glPopMatrix();
     glPopMatrix();
     glPopMatrix();
     
