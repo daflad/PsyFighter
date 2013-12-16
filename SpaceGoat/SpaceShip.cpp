@@ -13,7 +13,7 @@ using namespace std;
 
 SpaceShip::SpaceShip() {
     x = 0;
-    y = 0;
+    y = -0.05;
     z = -0.2;
     yaw = 0;
     pitch = 0;
@@ -46,6 +46,7 @@ void SpaceShip::draw() {
     glTranslatef(x, y, z);
     glRotatef(yaw, 0, 0, 1);
     glRotatef(pitch, 1, 0, 0);
+    glRotatef(roll, 0, 0, 1);
     glRotatef(3, 0, 1, 0);
     glScalef(dist, dist, dist);
     glDrawArrays(GL_QUADS, 0, 1696);

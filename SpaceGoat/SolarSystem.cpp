@@ -14,7 +14,7 @@ SolarSystem::SolarSystem() {
     textures.assign(numPlannets, *new GLuint);
     for (int i = 0; i < numPlannets; i++) {
         plannets.at(i).setID(textures.at(i));
-        plannets.at(i).setLocation(rand() % 30,rand() % 10,-rand() % 30);
+        plannets.at(i).setLocation(rand() % 30,rand() % 30,-rand() % 30);
     }
     printf("Number Of Plannets : %i\n", numPlannets);
 }

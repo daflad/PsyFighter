@@ -47,7 +47,7 @@ void GamePlay::setup() {
     glEnable( GL_BLEND );
     glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
     glDepthFunc(GL_LEQUAL);
-    gluPerspective(45.0f, GLfloat(1280)/GLfloat(800), 0.1f, 100.0f);
+    gluPerspective(90.0f, GLfloat(1280)/GLfloat(800), 0.1f, 100.0f);
     glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
     glClearColor(0.0f, 0.0f, 0.0f, 0.5f);
     glClearDepth(1.0f);
@@ -66,18 +66,38 @@ float deg2rad(float d) {
 }
 
 void GamePlay::update() {
-    printf("yaw\t:%f\npitch\t:%f\nroll\t:%f\n\n",yaw, pitch, roll);
+    printf("speed\t:%f\nyaw\t:%f\npitch\t:%f\nroll\t:%f\n\n",speed,yaw, pitch, roll);
     if (keyStrokes['w'] == true || keyStrokes['W'] == true) {
         pitch -= 0.5;
+        ship.pitch -= speed;
+    } else {
+        if (ship.pitch > 0) {
+            ship.pitch -= speed;
+        }
     }
     if (keyStrokes['s'] == true || keyStrokes['S'] == true) {
         pitch += 0.5;
+        ship.pitch += speed;
+    } else {
+        if (ship.pitch < 0) {
+            ship.pitch += speed;
+        }
     }
     if (keyStrokes['a'] == true || keyStrokes['A'] == true) {
         yaw -= 0.5;
+        ship.roll += speed;
+    } else {
+        if (ship.roll > 0) {
+            ship.roll -= speed;
+        }
     }
     if (keyStrokes['d'] == true || keyStrokes['D'] == true) {
         yaw += 0.5;
+        ship.roll -= speed;
+    } else {
+        if (ship.roll < 0) {
+            ship.roll += speed;
+        }
     }
     if (keyStrokes['q'] == true || keyStrokes['Q'] == true) {
         roll -= 0.5;
@@ -86,21 +106,19 @@ void GamePlay::update() {
         roll += 0.5;
     }
     if (keyStrokes['i'] == true || keyStrokes['I'] == true) {
-        speed += 0.001;
+        speed += 0.0001;
     }
     if (keyStrokes['k'] == true || keyStrokes['K'] == true) {
-        speed -= 0.001;
+        speed -= 0.0001;
     }
+    
     lx = sin(deg2rad(yaw));
     lz = -cos(deg2rad(yaw));
     ly = sin(deg2rad(pitch));
+    
     xPos += lx * speed;
     yPos += ly * speed;
     zPos += lz * speed;
-    
-    
-    lyaw = yaw;
-    lpitch = pitch;
 }
 
 void GamePlay::intiKeyBools(){
@@ -113,18 +131,12 @@ void GamePlay::draw() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-	// Set the camera
     glPushMatrix();
-    //gluLookAt(xPos, yPos, zPos, <#GLdouble centerX#>, <#GLdouble centerY#>, <#GLdouble centerZ#>, 0, 0, 1);
     ship.draw();
     glPopMatrix();
     glPushMatrix();
-    gluLookAt(	xPos, yPos, zPos,
-              xPos+lx, yPos+ly,  zPos+lz,
-              0.0f, 1.0f,  0.0f);
-    glPushMatrix();
+    gluLookAt(	xPos, yPos, zPos, xPos+lx, yPos+ly,  zPos+lz, 0.0f, 1.0f,  0.0f);
     solar.draw();
-    glPopMatrix();
     glPopMatrix();
     glutSwapBuffers();
 }
