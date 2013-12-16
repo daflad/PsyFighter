@@ -7,7 +7,7 @@
 //
 
 #include "Plannet.hpp"
-#include "globe.hpp"
+//#include "globe.hpp"
 
 
 using namespace std;
@@ -45,25 +45,29 @@ void Plannet::draw() {
     glPushMatrix();
     glTranslatef(x, y, z);
     
-    glEnableClientState(GL_NORMAL_ARRAY);
-    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-    glEnableClientState(GL_VERTEX_ARRAY);
-    
-    glVertexPointer(3, GL_FLOAT, 0, v_quads_g);
-    glTexCoordPointer(2, GL_FLOAT, 0, vt_quads_g);
-    glNormalPointer(GL_FLOAT, 0, vn_quads_g);
-    
+//    glEnableClientState(GL_NORMAL_ARRAY);
+//    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+//    glEnableClientState(GL_VERTEX_ARRAY);
+//    
+//    glVertexPointer(3, GL_FLOAT, 0, v_quads_g);
+//    glTexCoordPointer(2, GL_FLOAT, 0, vt_quads_g);
+//    glNormalPointer(GL_FLOAT, 0, vn_quads_g);
+//    
     glBindTexture ( GL_TEXTURE_2D, texture_id_planet);
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_SPHERE_MAP);
 	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_SPHERE_MAP);
     glTexImage2D(GL_TEXTURE_2D,0,3,bmp1.width,bmp1.height,0,GL_RGB,GL_UNSIGNED_BYTE,bmp1.bytes);
     
-    glScalef(s, s, s);
-    glDrawArrays(GL_QUADS, 0, 1440);
-    
-    glDisableClientState(GL_VERTEX_ARRAY);
-    glDisableClientState(GL_COLOR_ARRAY);
-    glDisableClientState(GL_NORMAL_ARRAY);
+    //glScalef(s, s, s);
+//    glDrawArrays(GL_QUADS, 0, 1440);
+    GLUquadricObj* Sphere = gluNewQuadric();
+    gluQuadricNormals(Sphere, GLU_SMOOTH);
+    gluQuadricTexture(Sphere, GL_TRUE);
+    gluSphere(Sphere,1,10,10);
+    gluDeleteQuadric(Sphere);
+//    glDisableClientState(GL_VERTEX_ARRAY);
+//    glDisableClientState(GL_COLOR_ARRAY);
+//    glDisableClientState(GL_NORMAL_ARRAY);
     
     glPopMatrix();
 }

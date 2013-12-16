@@ -69,47 +69,53 @@ void GamePlay::update() {
     printf("speed\t:%f\nyaw\t:%f\npitch\t:%f\nroll\t:%f\n\n",speed,yaw, pitch, roll);
     if (keyStrokes['w'] == true || keyStrokes['W'] == true) {
         pitch -= 0.5;
-        ship.pitch -= speed;
+        ship.pitch -= speed * 2;
     } else {
         if (ship.pitch > 0) {
-            ship.pitch -= speed;
+            ship.pitch -= speed * 2;
         }
     }
     if (keyStrokes['s'] == true || keyStrokes['S'] == true) {
         pitch += 0.5;
-        ship.pitch += speed;
+        ship.pitch += speed * 2;
     } else {
         if (ship.pitch < 0) {
-            ship.pitch += speed;
+            ship.pitch += speed * 2;
         }
     }
     if (keyStrokes['a'] == true || keyStrokes['A'] == true) {
         yaw -= 0.5;
-        ship.roll += speed;
+        ship.roll += speed * 2;
     } else {
         if (ship.roll > 0) {
-            ship.roll -= speed;
+            ship.roll -= speed * 2;
         }
     }
     if (keyStrokes['d'] == true || keyStrokes['D'] == true) {
         yaw += 0.5;
-        ship.roll -= speed;
+        ship.roll -= speed * 2;
     } else {
         if (ship.roll < 0) {
-            ship.roll += speed;
+            ship.roll += speed * 2;
         }
     }
     if (keyStrokes['q'] == true || keyStrokes['Q'] == true) {
-        roll -= 0.5;
+        speed += 0.001;
     }
     if (keyStrokes['e'] == true || keyStrokes['E'] == true) {
-        roll += 0.5;
+        speed -= 0.001;
     }
     if (keyStrokes['i'] == true || keyStrokes['I'] == true) {
         speed += 0.0001;
     }
     if (keyStrokes['k'] == true || keyStrokes['K'] == true) {
         speed -= 0.0001;
+    }
+    if (keyStrokes['o'] == true || keyStrokes['O'] == true) {
+        speed = 0;
+    }
+    if (keyStrokes['p'] == true || keyStrokes['P'] == true) {
+        speed = 1;
     }
     
     lx = sin(deg2rad(yaw));
@@ -119,6 +125,10 @@ void GamePlay::update() {
     xPos += lx * speed;
     yPos += ly * speed;
     zPos += lz * speed;
+    
+    if (solar.collisionDetection(xPos, yPos, zPos)) {
+        speed = 0;
+    }
 }
 
 void GamePlay::intiKeyBools(){
@@ -135,7 +145,7 @@ void GamePlay::draw() {
     ship.draw();
     glPopMatrix();
     glPushMatrix();
-    gluLookAt(	xPos, yPos, zPos, xPos+lx, yPos+ly,  zPos+lz, 0.0f, 1.0f,  0.0f);
+    gluLookAt(xPos, yPos, zPos, xPos+lx, yPos+ly,  zPos+lz, 0.0f, 1.0f,  0.0f);
     solar.draw();
     glPopMatrix();
     glutSwapBuffers();
