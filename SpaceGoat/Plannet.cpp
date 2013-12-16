@@ -61,7 +61,7 @@ void Plannet::draw() {
     //glScalef(s, s, s);
 //    glDrawArrays(GL_QUADS, 0, 1440);
     GLUquadricObj* Sphere = gluNewQuadric();
-    gluQuadricNormals(Sphere, GLU_SMOOTH);
+    //gluQuadricNormals(Sphere, GLU_SMOOTH);
     gluQuadricTexture(Sphere, GL_TRUE);
     gluSphere(Sphere,1,10,10);
     gluDeleteQuadric(Sphere);

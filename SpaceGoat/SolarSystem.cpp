@@ -36,13 +36,13 @@ void SolarSystem::draw() {
 bool SolarSystem::collisionDetection(float xPos, float yPos, float zPos) {
     for (int i = 0; i < numPlannets; i++) {
         float dx = xPos - plannets.at(i).x;
-        float dy = yPos - plannets.at(i).y;
+        float dy = yPos - 0.3 - plannets.at(i).y;
         float dz = zPos - plannets.at(i).z;
         float dx2 = dx * dx;
         float dy2 = dy * dy;
         float dz2 = dz * dz;
         float dist = sqrt(dx2 + dy2 + dz2);
-        if (plannets.at(i).s >= dist) {
+        if (plannets.at(i).s >= (dist * 2) ) {
             return true;
         }
     }
