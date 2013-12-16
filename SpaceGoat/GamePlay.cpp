@@ -24,6 +24,9 @@ GamePlay::GamePlay() {
     speed = 0;
     dist = 0;
     tex_ind = 0;
+    lx = 0;
+    lz = 0;
+    ly = 0;
     //intiKeyBools();
 }
 
@@ -44,6 +47,7 @@ void GamePlay::setup() {
     glEnable( GL_BLEND );
     glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
     glDepthFunc(GL_LEQUAL);
+    gluPerspective(45.0f, GLfloat(1280)/GLfloat(800), 0.1f, 100.0f);
     glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
     glClearColor(0.0f, 0.0f, 0.0f, 0.5f);
     glClearDepth(1.0f);
@@ -62,62 +66,38 @@ float deg2rad(float d) {
 }
 
 void GamePlay::update() {
-    printf("yaw\t:%f\npitch\t:%f\nroll\t:%f\n",yaw, pitch, roll);
+    printf("yaw\t:%f\npitch\t:%f\nroll\t:%f\n\n",yaw, pitch, roll);
     if (keyStrokes['w'] == true || keyStrokes['W'] == true) {
-        pitch -= 1;
+        pitch -= 0.5;
     }
     if (keyStrokes['s'] == true || keyStrokes['S'] == true) {
-        pitch += 1;
+        pitch += 0.5;
     }
     if (keyStrokes['a'] == true || keyStrokes['A'] == true) {
-        yaw -= 1;
+        yaw -= 0.5;
     }
     if (keyStrokes['d'] == true || keyStrokes['D'] == true) {
-        yaw += 1;
+        yaw += 0.5;
     }
     if (keyStrokes['q'] == true || keyStrokes['Q'] == true) {
-        roll -= 1;
+        roll -= 0.5;
     }
     if (keyStrokes['e'] == true || keyStrokes['E'] == true) {
-        roll += 1;
+        roll += 0.5;
     }
     if (keyStrokes['i'] == true || keyStrokes['I'] == true) {
-        speed += 0.0001;
+        speed += 0.001;
     }
     if (keyStrokes['k'] == true || keyStrokes['K'] == true) {
-        speed -= 0.0001;
+        speed -= 0.001;
     }
-//    if (pitch > 360) {
-//        pitch = 0;
-//    }
-//    if (pitch < 0) {
-//        pitch = 360;
-//    }
-//    if (yaw > 359) {
-//        yaw = 0;
-//    }
-//    if (yaw < 1) {
-//        yaw = 360;
-//    }
+    lx = sin(deg2rad(yaw));
+    lz = -cos(deg2rad(yaw));
+    ly = sin(deg2rad(pitch));
+    xPos += lx * speed;
+    yPos += ly * speed;
+    zPos += lz * speed;
     
-    float dfo = sqrt((xPos * xPos) + (zPos * zPos));
-    
-    float xInc = (dfo + speed) * sin(deg2rad(yaw - lyaw));
-    float yInc = (dfo + speed) * sin(deg2rad(pitch - lyaw));
-    float zInc = (dfo + speed) * cos(deg2rad(yaw - lyaw));
-    
-    printf("x\t:%f\ny\t:%f\nz\t:%f\n",xInc, yInc, zInc);
-//    
-//    if (yaw > 90 && yaw < 270) {
-//        zInc *= -1;
-//    }
-//    if (yaw < 180 || yaw > 275) {
-//        xInc *= -1;
-//    }
-    
-    xPos = xInc;
-    yPos = yInc;
-    zPos = zInc;
     
     lyaw = yaw;
     lpitch = pitch;
@@ -130,22 +110,22 @@ void GamePlay::intiKeyBools(){
 }
 
 void GamePlay::draw() {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);        
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
+	// Set the camera
     glPushMatrix();
-    glRotatef(roll, 0, 0, 1);
+    //gluLookAt(xPos, yPos, zPos, <#GLdouble centerX#>, <#GLdouble centerY#>, <#GLdouble centerZ#>, 0, 0, 1);
     ship.draw();
     glPopMatrix();
     glPushMatrix();
-    glLoadIdentity();
-    glRotatef(yaw, 0, 1, 0);
-    glRotatef(pitch, 1, 0, 0);
-    glTranslatef(xPos, yPos, zPos);
+    gluLookAt(	xPos, yPos, zPos,
+              xPos+lx, yPos+ly,  zPos+lz,
+              0.0f, 1.0f,  0.0f);
     glPushMatrix();
     solar.draw();
     glPopMatrix();
     glPopMatrix();
-    
     glutSwapBuffers();
 }
 

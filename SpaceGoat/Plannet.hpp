@@ -22,6 +22,8 @@ class Plannet {
 public:
     
     float x, y, z, s;
+    float pos[4][4];
+
     BMPClass bmp1;
     GLuint texture_id_planet;
     

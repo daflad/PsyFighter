@@ -19,7 +19,8 @@ class SpaceShip {
 public:
 
     float x, y, z, dist, speed;
-    int yaw, pitch, roll;
+    
+    float yaw, pitch, roll;
     BMPClass bmp;
     GLuint texture_id_ship;
     
