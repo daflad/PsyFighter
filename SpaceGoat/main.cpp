@@ -24,14 +24,15 @@ void CalculateFPS()
     char temp[100];
     
     cur_fps++;
-    if(getTimer()-old_time >= 1000) // over a second
-    {
-        old_fps = cur_fps;
-        cur_fps = 0;
-        old_time =getTimer();
-    }
-    sprintf(temp,"Bunny mesh using vertex buffer objects: %ld fps", old_fps);
-    glutSetWindowTitle(temp);
+//    while(getTimer()-old_time < 10) // over a second
+//    {
+//        printf("Waiting");
+//    }
+//    old_fps = cur_fps;
+//    cur_fps = 0;
+//    old_time =getTimer();
+//    sprintf(temp,"FPS: %ld fps", old_fps);
+//    glutSetWindowTitle(temp);
 }
 
 
@@ -77,6 +78,6 @@ void keyDown(unsigned char key, int x, int y){
 
 void update() {
     gp.update();
-    //CalculateFPS();
+    CalculateFPS();
     glutPostRedisplay();
 }

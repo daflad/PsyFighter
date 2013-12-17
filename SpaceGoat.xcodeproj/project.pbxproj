@@ -253,11 +253,14 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
-				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/glew/1.10.0/lib;
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/Cellar/glew/1.10.0/lib,
+					/usr/local/Cellar/boost/1.55.0/lib,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_LDFLAGS = "-lGLEW";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = /usr/local/Cellar/glew/1.10.0/include;
+				USER_HEADER_SEARCH_PATHS = "/usr/local/Cellar/glew/1.10.0/include /usr/local/Cellar/boost/1.55.0/include";
 			};
 			name = Debug;
 		};
@@ -267,11 +270,14 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				GCC_C_LANGUAGE_STANDARD = "compiler-default";
-				LIBRARY_SEARCH_PATHS = /usr/local/Cellar/glew/1.10.0/lib;
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/Cellar/glew/1.10.0/lib,
+					/usr/local/Cellar/boost/1.55.0/lib,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_LDFLAGS = "-lGLEW";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = /usr/local/Cellar/glew/1.10.0/include;
+				USER_HEADER_SEARCH_PATHS = "/usr/local/Cellar/glew/1.10.0/include /usr/local/Cellar/boost/1.55.0/include";
 			};
 			name = Release;
 		};

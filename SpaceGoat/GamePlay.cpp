@@ -15,11 +15,9 @@ GamePlay::GamePlay() {
     solar = SolarSystem();
     xPos = 0;
     yPos = 0;
-    zPos = 0;
+    zPos = 578490;
     yaw = 0;
-    lyaw = 0;
     pitch = 0;
-    lpitch = 0;
     roll = 0;
     speed = 0;
     dist = 0;
@@ -68,7 +66,7 @@ float deg2rad(float d) {
 void GamePlay::update() {
     printf("speed\t:%f\nyaw\t:%f\npitch\t:%f\nroll\t:%f\n\n",speed,yaw, pitch, roll);
     if (keyStrokes['w'] == true || keyStrokes['W'] == true) {
-        pitch -= 0.5;
+        pitch -= 1;
         ship.pitch -= speed * 2;
     } else {
         if (ship.pitch > 0) {
@@ -76,7 +74,7 @@ void GamePlay::update() {
         }
     }
     if (keyStrokes['s'] == true || keyStrokes['S'] == true) {
-        pitch += 0.5;
+        pitch += 1;
         ship.pitch += speed * 2;
     } else {
         if (ship.pitch < 0) {
@@ -84,7 +82,7 @@ void GamePlay::update() {
         }
     }
     if (keyStrokes['a'] == true || keyStrokes['A'] == true) {
-        yaw -= 0.5;
+        yaw -= 1;
         ship.roll += speed * 2;
     } else {
         if (ship.roll > 0) {
@@ -92,7 +90,7 @@ void GamePlay::update() {
         }
     }
     if (keyStrokes['d'] == true || keyStrokes['D'] == true) {
-        yaw += 0.5;
+        yaw += 1;
         ship.roll -= speed * 2;
     } else {
         if (ship.roll < 0) {
@@ -115,7 +113,7 @@ void GamePlay::update() {
         speed = 0;
     }
     if (keyStrokes['p'] == true || keyStrokes['P'] == true) {
-        speed = 1;
+        speed = 10;
     }
     
     lx = sin(deg2rad(yaw));
@@ -129,6 +127,9 @@ void GamePlay::update() {
     if (solar.collisionDetection(xPos, yPos, zPos)) {
         speed = 0;
     }
+    xLast = xPos;
+    yLast = yPos;
+    zLast = zPos;
 }
 
 void GamePlay::intiKeyBools(){

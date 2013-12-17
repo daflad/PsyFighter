@@ -31,7 +31,7 @@ public:
     void setup();
     void draw();
     void setID(GLuint texture_id);
-    void setLocation(int xx, int yy, int zz);
+    void setLocation(int xx, int yy, int zz, float ss);
 };
 
 #endif /* defined(__SpaceGoat__Plannet__) */

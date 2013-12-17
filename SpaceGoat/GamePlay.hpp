@@ -28,7 +28,7 @@ public:
     
     float pos[4][4];
     
-    float xPos, yPos, zPos, dist, yaw, lyaw, pitch, lpitch, roll, speed, lx, lz, ly;
+    float xPos, yPos, zPos, dist, yaw, pitch, roll, speed, lx, lz, ly, xLast, yLast, zLast;
     bool keyStrokes[256];
     
     SpaceShip ship;
