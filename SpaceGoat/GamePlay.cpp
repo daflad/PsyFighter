@@ -25,6 +25,8 @@ GamePlay::GamePlay() {
     lx = 0;
     lz = 0;
     ly = 0;
+    check = 0;
+    start = 0;
     //intiKeyBools();
 }
 
@@ -132,6 +134,13 @@ void GamePlay::update() {
     xLast = xPos;
     yLast = yPos;
     zLast = zPos;
+    if (check < -200) {
+        solar.make_plannets(150);
+        check = 0;
+    } else {
+        check--;
+    }
+    
 }
 
 void GamePlay::intiKeyBools(){

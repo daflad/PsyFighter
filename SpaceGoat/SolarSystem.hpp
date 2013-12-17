@@ -33,6 +33,7 @@ public:
     void draw();
     void setID(GLuint texture_id);
     bool collisionDetection(float xPos, float yPos, float zPos);
+    void make_plannets(int start);
 };
 
 #endif /* defined(__SpaceGoat__SolarSystem__) */
