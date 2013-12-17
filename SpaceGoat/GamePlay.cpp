@@ -15,7 +15,7 @@ GamePlay::GamePlay() {
     solar = SolarSystem();
     xPos = 0;
     yPos = 0;
-    zPos = 578490;
+    zPos = 0;
     yaw = 0;
     pitch = 0;
     roll = 0;

@@ -16,7 +16,7 @@ Plannet::Plannet() {
     x = 0;
     y = 0;
     z = 0;
-    s = 0.1;
+    s = 20 + rand() % 10;
 }
 
 void Plannet::setLocation(int xx, int yy, int zz) {
@@ -58,7 +58,7 @@ void Plannet::draw() {
     glNormalPointer(GL_FLOAT, 0, vn_quads_g);
 
     glBindTexture ( GL_TEXTURE_2D, texture_id_planet);
-    //glScalef(s, s, s);
+    glScalef(s, s, s);
     glDrawArrays(GL_QUADS, 0, 1440);
     //GLUquadricObj* Sphere = gluNewQuadric();
     //gluQuadricNormals(Sphere, GLU_SMOOTH);
