@@ -9,14 +9,13 @@
 #include "SolarSystem.hpp"
 
 SolarSystem::SolarSystem() {
-    float dists[] = {579500, 1081100, 1495700, 2278400, 7781400, 14270000, 28703000, 44999000, 59130000};
-    float diams[] = {4866, 12106, 12742, 6760, 142984, 116438, 46940, 45432, 2274};
-    numPlannets = 9;
+    numPlannets = 300;
     plannets.assign(numPlannets, *new Plannet());
-    textures.assign(numPlannets, *new GLuint);
+    textures = *new GLuint;
     for (int i = 0; i < numPlannets; i++) {
-        plannets.at(i).setID(++textures.at(0));
-        plannets.at(i).setLocation(0, 0,-dists[i], diams[i]);
+        plannets.at(i).setID(textures++);
+        plannets.at(i).setLocation(10 - rand() % 20, 10 - rand() % 30,-rand() % 10 - i);
+        printf("Location : %.2f,%.2f,%.2f\n", plannets.at(i).x, plannets.at(i).y,plannets.at(i).z);
     }
     printf("Number Of Plannets : %i\n", numPlannets);
 }

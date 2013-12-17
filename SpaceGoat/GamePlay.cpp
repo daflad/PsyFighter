@@ -45,7 +45,7 @@ void GamePlay::setup() {
     glEnable( GL_BLEND );
     glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
     glDepthFunc(GL_LEQUAL);
-    gluPerspective(90.0f, GLfloat(1280)/GLfloat(800), 0.1f, 100.0f);
+    gluPerspective(45.0f, GLfloat(1280)/GLfloat(800), 0.1f, 100.0f);
     glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
     glClearColor(0.0f, 0.0f, 0.0f, 0.5f);
     glClearDepth(1.0f);
@@ -64,7 +64,9 @@ float deg2rad(float d) {
 }
 
 void GamePlay::update() {
-    printf("speed\t:%f\nyaw\t:%f\npitch\t:%f\nroll\t:%f\n\n",speed,yaw, pitch, roll);
+    if (keyStrokes['v'] == true || keyStrokes['V'] == true) {
+        printf("speed\t:%f\nyaw\t:%f\npitch\t:%f\nroll\t:%f\n\n",speed,yaw, pitch, roll);
+    }
     if (keyStrokes['w'] == true || keyStrokes['W'] == true) {
         pitch -= 1;
         ship.pitch -= speed * 2;
@@ -113,7 +115,7 @@ void GamePlay::update() {
         speed = 0;
     }
     if (keyStrokes['p'] == true || keyStrokes['P'] == true) {
-        speed = 10;
+        speed = 1;
     }
     
     lx = sin(deg2rad(yaw));

@@ -26,7 +26,7 @@ public:
     int numPlannets;
     
     vector<Plannet> plannets;
-    vector<GLuint>  textures;
+    GLuint textures;
 
     SolarSystem();
     void setup();

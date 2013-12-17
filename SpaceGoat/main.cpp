@@ -21,9 +21,9 @@ int getTimer()
 
 void CalculateFPS()
 {
-    char temp[100];
+ //   char temp[100];
     
-    cur_fps++;
+  //  cur_fps++;
 //    while(getTimer()-old_time < 10) // over a second
 //    {
 //        printf("Waiting");
