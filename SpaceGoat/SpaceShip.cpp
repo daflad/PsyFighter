@@ -29,7 +29,6 @@ void SpaceShip::setID(GLuint texture_id) {
 void SpaceShip::setup(float xPos, float yPos, float zPos) {
     string fname = "/Users/stephenjohnrussell/dev/SpaceGoat/SpaceGoat/textures/texture.bmp";
 	BMPLoad(fname,bmp);
-    lazers.assign(20, *new LazerShot(xPos, yPos, zPos));
 }
 
 void SpaceShip::draw() {

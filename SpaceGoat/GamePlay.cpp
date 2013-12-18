@@ -118,20 +118,7 @@ void GamePlay::update() {
         speed = 0;
     }
     if (keyStrokes['p'] == true || keyStrokes['P'] == true) {
-        speed = 10;
-    }
-    if (keyStrokes[' '] == true) {
-        for (int i = 0; i < 20; i++) {
-            if (fired[i] == false) {
-                ship.lazers.at(i).init(xPos, yPos, zPos);
-                ship.lazers.at(i).fired = true;
-                break;
-            }
-        }
-    }
-    
-    for (int i = 0; i < 20; i++) {
-        fired[i] = ship.lazers.at(i).update();
+        speed = 1;
     }
     
     lx = sin(deg2rad(yaw));
@@ -170,9 +157,6 @@ void GamePlay::draw() {
     glPushMatrix();
     gluLookAt(xPos, yPos, zPos, xPos+lx, yPos+ly,  zPos+lz, 0.0f, 1.0f,  0.0f);
     solar.draw();
-    for (int i = 0; i < 20; i++) {
-        ship.lazers.at(i).draw();
-    }
     glPopMatrix();
     if (solar.collisionDetection(xPos, yPos, zPos) || xPos > 8.5 || xPos < -8.5 || yPos > 8.5 || yPos < -8.5) {
         speed = 0;

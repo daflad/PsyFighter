@@ -13,7 +13,6 @@
 #include "GL/glew.h"
 #include <GLUT/glut.h>
 #include "BMPLoader.hpp"
-#include "LazerShot.h"
 #include <vector>
 
 using namespace std;
@@ -23,8 +22,6 @@ class SpaceShip {
 public:
 
     float x, y, z, dist, speed;
-    
-    vector<LazerShot> lazers;
     
     float yaw, pitch, roll;
     GLuint texture_id_ship;
