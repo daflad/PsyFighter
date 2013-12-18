@@ -33,7 +33,7 @@
 /* Begin PBXFileReference section */
 		6D0CE09C18613436003886DE /* Boundry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Boundry.cpp; sourceTree = "<group>"; };
 		6D0CE09D18613436003886DE /* Boundry.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Boundry.hpp; sourceTree = "<group>"; };
-		6D436D24185A94B2006182D1 /* PsyFighter */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = PsyFighter; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D436D24185A94B2006182D1 /* SpaceGoat */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SpaceGoat; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D436D27185A94B2006182D1 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		6D436D30185A956B006182D1 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		6D436D32185A9571006182D1 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
@@ -80,7 +80,7 @@
 		6D436D25185A94B2006182D1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6D436D24185A94B2006182D1 /* PsyFighter */,
+				6D436D24185A94B2006182D1 /* SpaceGoat */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -123,9 +123,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6D436D23185A94B2006182D1 /* PsyFighter */ = {
+		6D436D23185A94B2006182D1 /* SpaceGoat */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6D436D2D185A94B2006182D1 /* Build configuration list for PBXNativeTarget "PsyFighter" */;
+			buildConfigurationList = 6D436D2D185A94B2006182D1 /* Build configuration list for PBXNativeTarget "SpaceGoat" */;
 			buildPhases = (
 				6D436D20185A94B2006182D1 /* Sources */,
 				6D436D21185A94B2006182D1 /* Frameworks */,
@@ -135,9 +135,9 @@
 			);
 			dependencies = (
 			);
-			name = PsyFighter;
+			name = SpaceGoat;
 			productName = SpaceGoat;
-			productReference = 6D436D24185A94B2006182D1 /* PsyFighter */;
+			productReference = 6D436D24185A94B2006182D1 /* SpaceGoat */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -161,7 +161,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6D436D23185A94B2006182D1 /* PsyFighter */,
+				6D436D23185A94B2006182D1 /* SpaceGoat */,
 			);
 		};
 /* End PBXProject section */
@@ -264,7 +264,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_LDFLAGS = "-lGLEW";
-				PRODUCT_NAME = PsyFighter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "/usr/local/Cellar/glew/1.10.0/include /usr/local/Cellar/boost/1.55.0/include";
 			};
 			name = Debug;
@@ -281,7 +281,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_LDFLAGS = "-lGLEW";
-				PRODUCT_NAME = PsyFighter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "/usr/local/Cellar/glew/1.10.0/include /usr/local/Cellar/boost/1.55.0/include";
 			};
 			name = Release;
@@ -298,7 +298,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6D436D2D185A94B2006182D1 /* Build configuration list for PBXNativeTarget "PsyFighter" */ = {
+		6D436D2D185A94B2006182D1 /* Build configuration list for PBXNativeTarget "SpaceGoat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6D436D2E185A94B2006182D1 /* Debug */,

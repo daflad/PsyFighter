@@ -23,7 +23,7 @@ void SolarSystem::make_plannets(int start) {
         
         plannets.at(i).setID(++textures);
 //        plannets.at(i).setLocation(1 - rand(), 1 - rand(), -rand() % 10 * i);
-        plannets.at(i).setLocation(5 - rand() % 10, 5 -rand() % 10 , -rand() % 150 * i);
+        plannets.at(i).setLocation(5 - rand() % 10, 5 -rand() % 10 , -rand() % 50 * i);
         
         printf("Location : %.2f,%.2f,%.2f\n", plannets.at(i).x, plannets.at(i).y,plannets.at(i).z);
     }
