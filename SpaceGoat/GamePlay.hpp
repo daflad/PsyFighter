@@ -27,6 +27,8 @@ public:
     float *lightPosition;
     
     float pos[4][4];
+    int lazers;
+    bool fired[20];
     
     float xPos, yPos, zPos, dist, yaw, pitch, roll, speed, lx, lz, ly, xLast, yLast, zLast;
     int check, start;

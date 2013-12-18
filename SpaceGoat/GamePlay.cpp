@@ -27,6 +27,7 @@ GamePlay::GamePlay() {
     ly = 0;
     check = 0;
     start = 0;
+    lazers = 0;
     //intiKeyBools();
 }
 
@@ -56,8 +57,8 @@ void GamePlay::setup() {
     GLuint *textures = new GLuint[2];
     glGenTextures(2, textures);
     
-    ship.setID(texture_id[tex_ind++]);
-    ship.setup();
+    ship.setID(tex_ind);
+    ship.setup(0, 0, 0);
     solar.setup();
 }
 
@@ -117,7 +118,20 @@ void GamePlay::update() {
         speed = 0;
     }
     if (keyStrokes['p'] == true || keyStrokes['P'] == true) {
-        speed = 1;
+        speed = 10;
+    }
+    if (keyStrokes[' '] == true) {
+        for (int i = 0; i < 20; i++) {
+            if (fired[i] == false) {
+                ship.lazers.at(i).init(xPos, yPos, zPos);
+                ship.lazers.at(i).fired = true;
+                break;
+            }
+        }
+    }
+    
+    for (int i = 0; i < 20; i++) {
+        fired[i] = ship.lazers.at(i).update();
     }
     
     lx = sin(deg2rad(yaw));
@@ -128,24 +142,21 @@ void GamePlay::update() {
     yPos += ly * speed;
     zPos += lz * speed;
     
-    if (solar.collisionDetection(xPos, yPos, zPos)) {
-        speed = 0;
-    }
     xLast = xPos;
     yLast = yPos;
     zLast = zPos;
-    if (check < -200) {
-        solar.make_plannets(150);
-        check = 0;
-    } else {
-        check--;
-    }
     
+    if (zPos < solar.bound.tubeZ + 100) {
+        solar.bound.tubeZ -= 900;
+    }
 }
 
 void GamePlay::intiKeyBools(){
     for (int i = 0; i < 256; i++) {
         keyStrokes[i] = false;
+    }
+    for (int i = 0; i < 20; i++) {
+        fired[i] = false;
     }
 }
 
@@ -159,7 +170,13 @@ void GamePlay::draw() {
     glPushMatrix();
     gluLookAt(xPos, yPos, zPos, xPos+lx, yPos+ly,  zPos+lz, 0.0f, 1.0f,  0.0f);
     solar.draw();
+    for (int i = 0; i < 20; i++) {
+        ship.lazers.at(i).draw();
+    }
     glPopMatrix();
+    if (solar.collisionDetection(xPos, yPos, zPos) || xPos > 8.5 || xPos < -8.5 || yPos > 8.5 || yPos < -8.5) {
+        speed = 0;
+    }
     glutSwapBuffers();
 }
 

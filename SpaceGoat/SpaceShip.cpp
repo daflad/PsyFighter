@@ -26,9 +26,10 @@ void SpaceShip::setID(GLuint texture_id) {
     texture_id_ship = texture_id;
 }
 
-void SpaceShip::setup() {
+void SpaceShip::setup(float xPos, float yPos, float zPos) {
     string fname = "/Users/stephenjohnrussell/dev/SpaceGoat/SpaceGoat/textures/texture.bmp";
 	BMPLoad(fname,bmp);
+    lazers.assign(20, *new LazerShot(xPos, yPos, zPos));
 }
 
 void SpaceShip::draw() {
@@ -42,7 +43,6 @@ void SpaceShip::draw() {
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR);
     glTexImage2D(GL_TEXTURE_2D,0,3,bmp.width,bmp.height,0,GL_RGB,GL_UNSIGNED_BYTE,bmp.bytes);
-    gluBuild2DMipmaps(GL_TEXTURE_2D, 3, bmp.width, bmp.height, GL_RGB, GL_UNSIGNED_BYTE, bmp.bytes);
     glTranslatef(x, y, z);
     glRotatef(yaw, 0, 0, 1);
     glRotatef(pitch, 1, 0, 0);

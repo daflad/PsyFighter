@@ -7,35 +7,40 @@
 //
 
 #include "SolarSystem.hpp"
+//#include "BMPLoader.cpp"
 
 SolarSystem::SolarSystem() {
     make_plannets(0);
+    tubeZ = -1000;
 }
 
 void SolarSystem::make_plannets(int start) {
-    numPlannets = 300;
+    numPlannets = 10;
     plannets.assign(start + numPlannets, *new Plannet());
     textures = *new GLuint;
     
-    for (int i = start; i < start + numPlannets; i++) {
+    for (int i = start; i < start   + numPlannets; i++) {
         
-        plannets.at(i).setID(textures++);
-        plannets.at(i).setLocation(20 - rand() % 40, 10 - rand() % 30,-rand() % 30 - i);
+        plannets.at(i).setID(++textures);
+//        plannets.at(i).setLocation(1 - rand(), 1 - rand(), -rand() % 10 * i);
+        plannets.at(i).setLocation(5 - rand() % 10, 5 -rand() % 10 , -rand() % 150 * i);
         
         printf("Location : %.2f,%.2f,%.2f\n", plannets.at(i).x, plannets.at(i).y,plannets.at(i).z);
     }
+    bound.setID(++textures);
     printf("Number Of Plannets : %i\n", numPlannets);
-
 }
 
 void SolarSystem::setup() {
     for (int i = 0; i < numPlannets; i++) {
         plannets.at(i).setup();
     }
+    bound.setup();
 }
 
 void SolarSystem::draw() {
     glPushMatrix();
+    bound.draw();
     for (int i = 0; i < numPlannets; i++) {
         plannets.at(i).draw();
     }
@@ -44,15 +49,20 @@ void SolarSystem::draw() {
 
 bool SolarSystem::collisionDetection(float xPos, float yPos, float zPos) {
     for (int i = 0; i < numPlannets; i++) {
-        float dx = xPos - plannets.at(i).x;
-        float dy = yPos - plannets.at(i).y;
-        float dz = zPos - plannets.at(i).z;
-        float dx2 = dx * dx;
-        float dy2 = dy * dy;
-        float dz2 = dz * dz;
-        float dist = dx2 + dy2 + dz2;
-        if (1.25 > dist) {
-            return true;
+        Plannet *p = &plannets.at(i);
+        if (p->z < zPos) {
+            float dx = xPos - p->x;
+            float dy = yPos - p->y;
+            float dz = zPos - p->z;
+            float dx2 = dx * dx;
+            float dy2 = dy * dy;
+            float dz2 = dz * dz;
+            float dist = sqrt(dx2 + dy2 + dz2);
+            if ((float)p->s / 8 > dist) {
+                return true;
+            }
+        } else {
+            plannets.at(i).setLocation(xPos, yPos , zPos - 100 -rand() % 150 * i * 2);
         }
     }
     return false;

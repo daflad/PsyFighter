@@ -15,7 +15,6 @@
 #include "GL/glew.h"
 #include <GLUT/glut.h>
 // Local headers
-#include "BMPLoader.hpp"
 #include <math.h>
 class Plannet {
     
@@ -24,7 +23,6 @@ public:
     float x, y, z, s;
     float pos[4][4];
 
-    BMPClass bmp1;
     GLuint texture_id_planet;
     
     Plannet();

@@ -7,7 +7,8 @@
 //
 
 #include "Plannet.hpp"
-#include "astroid_001.hpp"
+#include "globe.hpp"
+#include "BMPLoader.hpp"
 
 
 using namespace std;
@@ -16,7 +17,7 @@ Plannet::Plannet() {
     x = 0;
     y = 0;
     z = 0;
-    s = rand() % 10;
+    s = 15;
 }
 
 void Plannet::setLocation(int xx, int yy, int zz) {
@@ -36,12 +37,13 @@ void Plannet::setup() {
 //    glTexCoordPointer(2, GL_FLOAT, 0, vt_quads_g);
 //    glNormalPointer(GL_FLOAT, 0, vn_quads_g);
     
-//    int pli = rand() % 8;
-    string fname = "/Users/stephenjohnrussell/dev/SpaceGoat/SpaceGoat/textures/world08.bmp";
+    int pli = rand() % 9;
+    string fname = "/Users/stephenjohnrussell/dev/SpaceGoat/SpaceGoat/textures/world0" + to_string(pli) + ".bmp";
+    BMPClass bmp1;
 	BMPLoad(fname,bmp1);
     glBindTexture ( GL_TEXTURE_2D, texture_id_planet);
-    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_MIPMAP);
-	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_MIPMAP);
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR_MIPMAP_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR_MIPMAP_LINEAR);
     gluBuild2DMipmaps(GL_TEXTURE_2D,3,bmp1.width,bmp1.height,GL_RGB, GL_UNSIGNED_BYTE,bmp1.bytes);
 }
 
@@ -53,13 +55,13 @@ void Plannet::draw() {
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
     glEnableClientState(GL_VERTEX_ARRAY);
 
-    glVertexPointer(3, GL_FLOAT, 0, v_quads_a);
-    glTexCoordPointer(2, GL_FLOAT, 0, vt_quads_a);
-    glNormalPointer(GL_FLOAT, 0, vn_quads_a);
+    glVertexPointer(3, GL_FLOAT, 0, v_quads_g);
+    glTexCoordPointer(2, GL_FLOAT, 0, vt_quads_g);
+    glNormalPointer(GL_FLOAT, 0, vn_quads_g);
 
     glBindTexture ( GL_TEXTURE_2D, texture_id_planet);
     glScalef(s, s, s);
-    glDrawArrays(GL_QUADS, 0, 304);
+    glDrawArrays(GL_QUADS, 0, 1440);
 //    GLUquadricObj* Sphere = gluNewQuadric();
 //    gluQuadricNormals(Sphere, GLU_SMOOTH);
 //    gluQuadricTexture(Sphere, GL_TRUE);
