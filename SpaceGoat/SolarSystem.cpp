@@ -40,6 +40,7 @@ void SolarSystem::setup() {
 
 void SolarSystem::draw() {
     glPushMatrix();
+    bound.r += 1;
     bound.draw();
     for (int i = 0; i < numPlannets; i++) {
         plannets.at(i).draw();

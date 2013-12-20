@@ -17,7 +17,7 @@ class Boundry {
     
 public:
     
-    float x, y, z;
+    float x, y, z, r;
     int tubeZ;
     GLuint texture_id_bound;
     GLUquadric *quad;

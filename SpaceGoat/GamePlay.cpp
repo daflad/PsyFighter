@@ -118,7 +118,7 @@ void GamePlay::update() {
         speed = 0;
     }
     if (keyStrokes['p'] == true || keyStrokes['P'] == true) {
-        speed = 1;
+        speed = 3;
     }
     
     lx = sin(deg2rad(yaw));
